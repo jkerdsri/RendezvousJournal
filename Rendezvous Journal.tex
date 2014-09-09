@@ -348,27 +348,62 @@ Additionally, the other factor that impact the higher delivery performance is th
 \subsubsection{Power saving factor}
 \begin{figure}[!t]
 	\centering
-	\includegraphics[width=2.5in]{Graphs/Utilization.pdf}
-	\caption{Effect of $\tau_s$ on delivery performance over node density}
-	\label{Utilization ratio of wake-up interval comparison}
+	\includegraphics[width=2.5in]{Graphs/NpsDelivery.pdf}
+	\caption{Delivery Ratio per Power Saving Factor}
+	\label{Delivery Ratio per Power Saving Factor}
 \end{figure}
+
 \begin{figure}[!t]
 \centering
-\includegraphics[width=2.5in]{Graphs/range.pdf}
-\caption{Delivery ratio per ratio range ratio}
-\label{Network performance per ratio range ratio}
+\includegraphics[width=2.5in]{Graphs/NpsDeliveryPerformance.pdf}
+\caption{Delivery Performance per Power Saving Factor}
+\label{Delivery Performance per Power Saving Factor}
 \end{figure}
 
-In this section, we study the factors effecting the power saving of the proposed protocols by analyzing the impact of $\tau_s$ on the delivery performance as seen in Fig. \ref{Utilization ratio of wake-up interval comparison}.
-This graph varies the ratio of $\tau_s$ which is the time interval of $r_c^{min}$ over overall period, starting from 0.1 to 1.0. 
-Additionally, Fig. \ref{Network performance per ratio range ratio} presents the delivery ratio of non-predictable Rendezvous routing over the radio range ratio, varying from 0.1 to 1.0. 
-This radio range ratio ($R_s$) is defined by ${{ r }_{ c }^{ min }}/{{ r }_{ c }^{ max }}$ which is the minimum radio range per maximum range of the OppNet nodes.
+In this section, we study the factors effecting the power saving and the trade-off between power consumption and delivery ratio.
+%%
+We define the Power Saving Factor, $n_{ps}$ as the energy consumption parameter to analyze the power utilization of our proposed protocol which can be determined as in Eq. \ref{nps}.
+%%
+In the simulation, we select the density of 100 nodes to show the effectiveness of our protocol in the sparse environment.
 
-The result from Fig. \ref{Utilization ratio of wake-up interval comparison} shows that the value of $\tau_s$ varies directly to the delivery performance, which suggests that keeping the state of  operation in saving mode longer resulting in higher $D_p$.
-Similarly, the delivery ratio from Fig. \ref{Network performance per ratio range ratio}  is increased with the higher of radio range ratio which means increasing the ${ r }_{ c }^{ min }$ will result in higher delivery ratio.
-Therefore, to increase the delivery performance, we have to escalate the value of $\tau_s$ and $R_s$ which means maintaining the operation of power saving mode as long as possible while extending the ${ r }_{ c }^{ min }$.
-The reason behind this result comes from Eq. \ref{eq:delivery_performance}, in which the value of radio range is the leading factor effecting the delivery performance.
-In parallel, the time period of ${ r }_{ c }^{ min }$ state is effecting the value of $D_p$ since the result shows that the delivery performance varies directly to the $\tau_s$.
+\begin{equation}
+{ n }_{ ps }={ \tau  }_{ s }\cdot \frac { { r }_{ c }^{ max }-{ r }_{ c }^{ min } }{ { r }_{ c }^{ max } } 
+\label{nps}
+\end{equation}
+
+Fig. \ref{Delivery Ratio per Power Saving Factor} shows the effect of power saving factor on delivery ratio.
+%%
+This graph presents the declining in the delivery ratio when the value of $n_{ps}$ increases.
+%%
+This implies that in the attempt of saving the energy, the deliverable of messages are effected from the reduce in the wireless range.
+%%
+However, the delivery performance is increasing with the power saving factor as seen in Fig. \ref{Delivery Performance per Power Saving Factor}.
+%%
+This result illustrates that in order to gain higher delivery performance, the power saving factor is also increasing.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{Graphs/NpsDeliveryPerformanceAndDeliveryRatio.pdf}
+\caption{The Optimum between Delivery Ratio and Delivery Performance}
+\label{The Optimum between Delivery Ratio and Delivery Performance}
+\end{figure}
+
+As a result, the trade-off between the delivery ratio and delivery performance is shown in Fig. \ref{The Optimum between Delivery Ratio and Delivery Performance}.
+From the graph, the optimum is on the power saving factor of 0.6
+
+
+
+
+% In this section, we study the factors effecting the power saving of the proposed protocols by analyzing the impact of $\tau_s$ on the delivery performance as seen in Fig. \ref{Utilization ratio of wake-up interval comparison}.
+% This graph varies the ratio of $\tau_s$ which is the time interval of $r_c^{min}$ over overall period, starting from 0.1 to 1.0. 
+% Additionally, Fig. \ref{Network performance per ratio range ratio} presents the delivery ratio of non-predictable Rendezvous routing over the radio range ratio, varying from 0.1 to 1.0. 
+% This radio range ratio ($R_s$) is defined by ${{ r }_{ c }^{ min }}/{{ r }_{ c }^{ max }}$ which is the minimum radio range per maximum range of the OppNet nodes.
+
+% The result from Fig. \ref{Utilization ratio of wake-up interval comparison} shows that the value of $\tau_s$ varies directly to the delivery performance, which suggests that keeping the state of  operation in saving mode longer resulting in higher $D_p$.
+% Similarly, the delivery ratio from Fig. \ref{Network performance per ratio range ratio}  is increased with the higher of radio range ratio which means increasing the ${ r }_{ c }^{ min }$ will result in higher delivery ratio.
+% Therefore, to increase the delivery performance, we have to escalate the value of $\tau_s$ and $R_s$ which means maintaining the operation of power saving mode as long as possible while extending the ${ r }_{ c }^{ min }$.
+% The reason behind this result comes from Eq. \ref{eq:delivery_performance}, in which the value of radio range is the leading factor effecting the delivery performance.
+% In parallel, the time period of ${ r }_{ c }^{ min }$ state is effecting the value of $D_p$ since the result shows that the delivery performance varies directly to the $\tau_s$.
 
 \subsubsection{Rendezvous node factor}
 \begin{figure}[!t]
