@@ -1,7 +1,7 @@
 # Veusz saved document (version 1.21)
-# Saved at 2014-09-01T01:59:44.613369
+# Saved at 2014-09-10T09:47:35.088071
 
-AddImportPath(u'/Volumes/Storage/Dropbox/Second Journal/Journal in 2 Column/Graphs')
+AddImportPath(u'/Volumes/Storage/Dropbox/RendezvousJournal/Graphs')
 ImportFileCSV(u'Data for 2nd Journal - rcmax_Rrv.csv', linked=True)
 Add('page', name='page1', autoadd=False)
 To('page1')
@@ -29,10 +29,13 @@ Set('MinorGridLines/hide', False)
 To('..')
 Add('xy', name='xy1', autoadd=False)
 To('xy1')
+Set('marker', u'cross')
 Set('xData', u'Rcmax/Rrv')
 Set('yData', u'Delivery Ratio')
 Set('key', u'\\frac{R_c^{max}}{R_{rv}}')
 Set('labels', u'')
+Set('PlotLine/bezierJoin', False)
+Set('PlotLine/color', u'white')
 To('..')
 To('..')
 To('..')

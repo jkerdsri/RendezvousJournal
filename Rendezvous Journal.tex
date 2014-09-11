@@ -346,40 +346,30 @@ Additionally, the other factor that impact the higher delivery performance is th
 \end{figure}
 
 \subsubsection{Power saving factor}
-\begin{figure}[!t]
-	\centering
-	\includegraphics[width=2.5in]{Graphs/NpsDelivery.pdf}
-	\caption{Delivery Ratio per Power Saving Factor}
-	\label{Delivery Ratio per Power Saving Factor}
-\end{figure}
+% \begin{figure}[!t]
+% 	\centering
+% 	\includegraphics[width=2.5in]{Graphs/NpsDelivery.pdf}
+% 	\caption{Delivery Ratio per Power Saving Factor}
+% 	\label{Delivery Ratio per Power Saving Factor}
+% \end{figure}
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{Graphs/NpsDeliveryPerformance.pdf}
-\caption{Delivery Performance per Power Saving Factor}
-\label{Delivery Performance per Power Saving Factor}
-\end{figure}
+% \begin{figure}[!t]
+% \centering
+% \includegraphics[width=2.5in]{Graphs/NpsDeliveryPerformance.pdf}
+% \caption{Delivery Performance per Power Saving Factor}
+% \label{Delivery Performance per Power Saving Factor}
+% \end{figure}
 
 In this section, we study the factors effecting the power saving and the trade-off between power consumption and delivery ratio.
 %%
 We define the Power Saving Factor, $n_{ps}$ as the energy consumption parameter to analyze the power utilization of our proposed protocol which can be determined as in Eq. \ref{nps}.
 %%
-In the simulation, we select the density of 100 nodes to show the effectiveness of our protocol in the sparse environment.
+In the simulation, we select the density of 100, 200 and 300 nodes to study the impact of power saving factor to the delivery ratio on different density envioronment.
 
 \begin{equation}
 { n }_{ ps }={ \tau  }_{ s }\cdot \frac { { r }_{ c }^{ max }-{ r }_{ c }^{ min } }{ { r }_{ c }^{ max } } 
 \label{nps}
 \end{equation}
-
-Fig. \ref{Delivery Ratio per Power Saving Factor} shows the effect of power saving factor on delivery ratio.
-%%
-This graph presents the declining in the delivery ratio when the value of $n_{ps}$ increases.
-%%
-This implies that in the attempt of saving the energy, the deliverable of messages are effected from the reduce in the wireless range.
-%%
-However, the delivery performance is increasing with the power saving factor as seen in Fig. \ref{Delivery Performance per Power Saving Factor}.
-%%
-This result illustrates that in order to gain higher delivery performance, the power saving factor is also increasing.
 
 \begin{figure}[!t]
 \centering
@@ -388,8 +378,30 @@ This result illustrates that in order to gain higher delivery performance, the p
 \label{The Optimum between Delivery Ratio and Delivery Performance}
 \end{figure}
 
-As a result, the trade-off between the delivery ratio and delivery performance is shown in Fig. \ref{The Optimum between Delivery Ratio and Delivery Performance}.
-From the graph, the optimum is on the power saving factor of 0.6
+From Fig. \ref{The Optimum between Delivery Ratio and Delivery Performance}, the graph presents the declining in the delivery ratio when the value of $n_{ps}$ increases.
+%%
+This implies that in the attempt of saving the energy, the deliverable of messages are effected from the wireless range reduction.
+%%
+On the other hand, the delivery performance is increasing with the value of power saving factor which shows that the higher the $n_{ps}$, the higher the delivery performance.
+%%
+Overall, the key point of Fig. \ref{The Optimum between Delivery Ratio and Delivery Performance} is the cross point between delivery ratio and delivery performance which can see at $n_{ps} = 0.55$ which is the optimum point of our method.
+
+
+
+% Fig. \ref{Delivery Ratio per Power Saving Factor} shows the effect of power saving factor on delivery ratio.
+% %%
+% This graph presents the declining in the delivery ratio when the value of $n_{ps}$ increases.
+% %%
+% This implies that in the attempt of saving the energy, the deliverable of messages are effected from the reduce in the wireless range.
+% %%
+% However, the delivery performance is increasing with the power saving factor as seen in Fig. \ref{Delivery Performance per Power Saving Factor}.
+% %%
+% This result illustrates that in order to gain higher delivery performance, the power saving factor is also increasing.
+
+
+
+% As a result, the trade-off between the delivery ratio and delivery performance is shown in Fig. \ref{The Optimum between Delivery Ratio and Delivery Performance}.
+% From the graph, the optimum is on the power saving factor of 0.6
 
 
 
