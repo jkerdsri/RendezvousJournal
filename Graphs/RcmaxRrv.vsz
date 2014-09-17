@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.21)
-# Saved at 2014-09-10T09:47:35.088071
+# Saved at 2014-09-17T06:22:47.424186
 
 AddImportPath(u'/Volumes/Storage/Dropbox/RendezvousJournal/Graphs')
 ImportFileCSV(u'Data for 2nd Journal - rcmax_Rrv.csv', linked=True)
@@ -22,7 +22,7 @@ Add('axis', name='y', autoadd=False)
 To('y')
 Set('label', u'Delivery Ratio')
 Set('min', 'Auto')
-Set('max', 0.9)
+Set('max', 'Auto')
 Set('direction', 'vertical')
 Set('GridLines/hide', False)
 Set('MinorGridLines/hide', False)
