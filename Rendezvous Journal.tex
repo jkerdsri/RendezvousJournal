@@ -267,7 +267,7 @@ In our evaluation we consider the following metrics:
 	D_{r} =\frac { { M }_{ delivered } }{ { M }_{ created } } 
 	\end{equation}
 
-\paragraph{Delivery performance ($D_{p}$)} is a composite metrics defined as a delivery ratio per energy consumption unit in order to clearly analyze our protocol performance.
+\paragraph{Protocol performance ($P_{p}$)} is a composite metrics defined as a delivery ratio per energy consumption unit in order to clearly analyze our protocol performance.
 Basically, the relation between energy consumption and radio range can be determined by Eq.\ref{eq:enegy} \cite{Yang2010, Wang2006}.
 
 \begin{IEEEeqnarray}{rCl}
@@ -278,7 +278,7 @@ Basically, the relation between energy consumption and radio range can be determ
 ${ E }_{ T }$ is the amounts of transmission energy consumed at a node for transmitting an L-length message, where $\alpha$ is the power loss component with $\alpha \in \left[ 2,4 \right]$ and $\epsilon { f }_{ s }\left[ J/(bit/{ m }^{ \alpha  }) \right]$ is the amount of energy consumed by an amplifier to transmit one bit data at an acceptable quality level.
 In this protocol, we approximately determine the relationship between unit of consumed energy and radio radius of node in the term of exponential equation.
 We assume the simplicity of energy model by only accounting for the communication energy consumption of a wireless interface and do not consider other resources such as computation, location services or mobility.
-In fact, the messages generated from protocol are accounted for the delivery performance.
+In fact, the messages generated from protocol are accounted for the protocol performance.
 As a result, the energy consumption can be simply derived as Eq. \ref{eq:new_energy}.
 
 \begin{eqnarray}
@@ -286,11 +286,11 @@ As a result, the energy consumption can be simply derived as Eq. \ref{eq:new_ene
 	{ E }_{ P }\quad \propto { \quad M }_{P }\cdot{ r }_{ P }^{ 2 }
 \end{eqnarray}
 
-Therefore, the delivery performance can be calculated from  Eq. \ref{eq:delivery_performance}.
+Therefore, the protocol performance can be calculated from  Eq. \ref{eq:protocol_performance}.
 
 \begin{eqnarray}
-\label{eq:delivery_performance}
-{ D }_{ P }=\frac { { D }_{ r }^{ P } }{ { E }_{ P,B } } =\frac { { D }_{ r }^{ P } }{ \left( \frac { { M }_{ P }{ \cdot r }_{ P }^{ 2 } }{ { M }_{ B }\cdot { r }_{ B }^{ 2 } }  \right)  } 
+\label{eq:protocol_performance}
+{ P }_{ P }=\frac { { D }_{ r }^{ P,B } }{ { E }_{ P,B } } =\frac { { D }_{ r }^{ P }/{ D }_{ r }^{ B } }{ \left( \frac { { M }_{ P }{ \cdot r }_{ P }^{ 2 } }{ { M }_{ B }\cdot { r }_{ B }^{ 2 } }  \right)  } 
 \end{eqnarray}
 
 In this Equation, $P$ is the target protocol while $B$ is the baseline protocol (Epidemic protocol, for example) to be used as comparative energy reference.
@@ -304,7 +304,7 @@ The average transmission radius is referred as $r$ while $\alpha$ is the power c
 This section shows the results of the different simulations that have been performed evaluating the impact in the performance.
 The following subsections include the results of each set of simulations.
 
-\subsubsection{Delivery performance}
+\subsubsection{Protocol performance}
 
 \begin{figure}[!t]
 	\centering
@@ -315,9 +315,9 @@ The following subsections include the results of each set of simulations.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=2.5in]{Graphs/NetworkPerformance.pdf}
-\caption{Delivery Performance per Node Density}
-\label{Network Performance per Node Density}
+\includegraphics[width=2.5in]{Graphs/ProtocolPerformance.pdf}
+\caption{Protocol Performance per Node Density}
+\label{Protocol Performance per Node Density}
 \end{figure}
 
 Firstly, the comparison of delivery ratio is shown in Fig. \ref{Delivery Ratio per Node Density} while $x-axis$ represents the node density (the number of nodes in the area of 1 $km^2$) and $y-axis$ shows the delivery ratio.
@@ -331,12 +331,12 @@ The reason behind the behaviors from this result is that the Rendezvous concept 
 However, in the sparse network, the Rendezvous nodes can help facilitating the messages exchange mechanism among OppNet nodes which resulting in much higher delivery ratio.
 In addition, with the knowledge of node gathering-area, the delivery ratio can be further increased especially in the extremely low node density.
 
-Furthermore, the proposed protocols utilize less energy consumption which is a vital factor in opportunistic network because the mobile nodes in this scheme are usually equipped with limited power resources that the performance can be seen in Fig. \ref{Network Performance per Node Density}.
-Similar to graph of delivery ratio, we compare the delivery performance ($y-axis$) on node density ($x-axis$), in which the $D_p$ can be calculated from Eq. \ref{eq:delivery_performance}.
-It can be obviously seen that the proposed protocols in Fig. \ref{Network Performance per Node Density} can save about half of energy consumption in order to achieve the same delivery ratio in the dense environment.
+Furthermore, the proposed protocols utilize less energy consumption which is a vital factor in opportunistic network because the mobile nodes in this scheme are usually equipped with limited power resources that the performance can be seen in Fig. \ref{Protocol Performance per Node Density}.
+Similar to graph of delivery ratio, we compare the protocol performance ($y-axis$) on node density ($x-axis$), in which the $P_p$ can be calculated from Eq. \ref{eq:protocol_performance}.
+It can be obviously seen that the proposed protocols in Fig. \ref{Protocol Performance per Node Density} can save about half of energy consumption in order to achieve the same delivery ratio in the dense environment.
 Nevertheless, the propose protocol use only 25\% power consumption in sparse environment.
-The better delivery performance results from the lower messages number of our proposed protocols compare to the Epidemic counter part as can see in Fig. \ref{Number of Created Messages per Node Density}.
-Additionally, the other factor that impact the higher delivery performance is the lower average wireless transmission of our proposed protocol.
+The better protocol performance results from the lower messages number of our proposed protocols compare to the Epidemic counter part as can see in Fig. \ref{Number of Created Messages per Node Density}.
+Additionally, the other factor that impact the higher protocol performance is the lower average wireless transmission of our proposed protocol.
 
 \begin{figure}[!t]
 	\centering
@@ -356,8 +356,8 @@ Additionally, the other factor that impact the higher delivery performance is th
 % \begin{figure}[!t]
 % \centering
 % \includegraphics[width=2.5in]{Graphs/NpsDeliveryPerformance.pdf}
-% \caption{Delivery Performance per Power Saving Factor}
-% \label{Delivery Performance per Power Saving Factor}
+% \caption{protocol Performance per Power Saving Factor}
+% \label{protocol Performance per Power Saving Factor}
 % \end{figure}
 
 In this section, we study the factors effecting the power saving and the trade-off between power consumption and delivery ratio.
@@ -374,17 +374,17 @@ In the simulation, we select the density of 100, 200 and 300 nodes to study the 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=2.5in]{Graphs/NpsDeliveryPerformanceAndDeliveryRatio.pdf}
-\caption{The Optimum between Delivery Ratio and Delivery Performance}
-\label{The Optimum between Delivery Ratio and Delivery Performance}
+\caption{The Optimum between Delivery Ratio and protocol Performance}
+\label{The Optimum between Delivery Ratio and protocol Performance}
 \end{figure}
 
-From Fig. \ref{The Optimum between Delivery Ratio and Delivery Performance}, the graph presents the declining in the delivery ratio when the value of $n_{ps}$ increases.
+From Fig. \ref{The Optimum between Delivery Ratio and protocol Performance}, the graph presents the declining in the delivery ratio when the value of $n_{ps}$ increases.
 %%
 This implies that in the attempt of saving the energy, the deliverable of messages are effected from the wireless range reduction.
 %%
-On the other hand, the delivery performance is increasing with the value of power saving factor which shows that the higher the $n_{ps}$, the higher the delivery performance.
+On the other hand, the protocol performance is increasing with the value of power saving factor which shows that the higher the $n_{ps}$, the higher the protocol performance.
 %%
-Overall, the key point of Fig. \ref{The Optimum between Delivery Ratio and Delivery Performance} is the cross point between delivery ratio and delivery performance which can see at $n_{ps} = 0.55$ which is the optimum point of our method.
+Overall, the key point of Fig. \ref{The Optimum between Delivery Ratio and protocol Performance} is the cross point between delivery ratio and protocol performance which can see at $n_{ps} = 0.55$ which is the optimum point of our method.
 
 
 
@@ -394,28 +394,28 @@ Overall, the key point of Fig. \ref{The Optimum between Delivery Ratio and Deliv
 % %%
 % This implies that in the attempt of saving the energy, the deliverable of messages are effected from the reduce in the wireless range.
 % %%
-% However, the delivery performance is increasing with the power saving factor as seen in Fig. \ref{Delivery Performance per Power Saving Factor}.
+% However, the protocol performance is increasing with the power saving factor as seen in Fig. \ref{protocol performance per Power Saving Factor}.
 % %%
-% This result illustrates that in order to gain higher delivery performance, the power saving factor is also increasing.
+% This result illustrates that in order to gain higher protocol performance, the power saving factor is also increasing.
 
 
 
-% As a result, the trade-off between the delivery ratio and delivery performance is shown in Fig. \ref{The Optimum between Delivery Ratio and Delivery Performance}.
+% As a result, the trade-off between the delivery ratio and protocol performance is shown in Fig. \ref{The Optimum between Delivery Ratio and protocol performance}.
 % From the graph, the optimum is on the power saving factor of 0.6
 
 
 
 
-% In this section, we study the factors effecting the power saving of the proposed protocols by analyzing the impact of $\tau_s$ on the delivery performance as seen in Fig. \ref{Utilization ratio of wake-up interval comparison}.
+% In this section, we study the factors effecting the power saving of the proposed protocols by analyzing the impact of $\tau_s$ on the protocol performance as seen in Fig. \ref{Utilization ratio of wake-up interval comparison}.
 % This graph varies the ratio of $\tau_s$ which is the time interval of $r_c^{min}$ over overall period, starting from 0.1 to 1.0. 
 % Additionally, Fig. \ref{Network performance per ratio range ratio} presents the delivery ratio of non-predictable Rendezvous routing over the radio range ratio, varying from 0.1 to 1.0. 
 % This radio range ratio ($R_s$) is defined by ${{ r }_{ c }^{ min }}/{{ r }_{ c }^{ max }}$ which is the minimum radio range per maximum range of the OppNet nodes.
 
-% The result from Fig. \ref{Utilization ratio of wake-up interval comparison} shows that the value of $\tau_s$ varies directly to the delivery performance, which suggests that keeping the state of  operation in saving mode longer resulting in higher $D_p$.
+% The result from Fig. \ref{Utilization ratio of wake-up interval comparison} shows that the value of $\tau_s$ varies directly to the protocol performance, which suggests that keeping the state of  operation in saving mode longer resulting in higher $D_p$.
 % Similarly, the delivery ratio from Fig. \ref{Network performance per ratio range ratio}  is increased with the higher of radio range ratio which means increasing the ${ r }_{ c }^{ min }$ will result in higher delivery ratio.
-% Therefore, to increase the delivery performance, we have to escalate the value of $\tau_s$ and $R_s$ which means maintaining the operation of power saving mode as long as possible while extending the ${ r }_{ c }^{ min }$.
-% The reason behind this result comes from Eq. \ref{eq:delivery_performance}, in which the value of radio range is the leading factor effecting the delivery performance.
-% In parallel, the time period of ${ r }_{ c }^{ min }$ state is effecting the value of $D_p$ since the result shows that the delivery performance varies directly to the $\tau_s$.
+% Therefore, to increase the protocol performance, we have to escalate the value of $\tau_s$ and $R_s$ which means maintaining the operation of power saving mode as long as possible while extending the ${ r }_{ c }^{ min }$.
+% The reason behind this result comes from Eq. \ref{eq:protocol_performance}, in which the value of radio range is the leading factor effecting the protocol performance.
+% In parallel, the time period of ${ r }_{ c }^{ min }$ state is effecting the value of $D_p$ since the result shows that the protocol performance varies directly to the $\tau_s$.
 
 \subsubsection{Rendezvous node factor}
 \begin{figure}[!t]
@@ -441,8 +441,8 @@ The result suggests that the value of $R_c^{max}$ has slightly effect on deliver
 
 %\subsubsection{Effect of time interval on operational modes}
 %Since the key benefit of our protocol is the dynamic radio range, the trade off of energy consumption and delivery ratio requires to be analyzed.
-%Fig. \ref{Utilization ratio of wake-up interval comparison} shows the delivery performance of each node density varying by $\tau_{s}$.
-%The result clearly shows that the delivery performance increase with the value of $\tau_s$. 
+%Fig. \ref{Utilization ratio of wake-up interval comparison} shows the protocol performance of each node density varying by $\tau_{s}$.
+%The result clearly shows that the protocol performance increase with the value of $\tau_s$. 
 %The value of $\tau_s$ = 1 can maximize the delivery ratio.
 %This means that we should maximize the full-power mode as much as possible in order to gain better delivery ratio.
 %As a result, the significance of wireless range is higher than energy minimizing time.
@@ -474,9 +474,9 @@ This novel protocol proposes the two new types of node, Rendezvous node and OppN
 In this Rendezvous place, the passing nodes can announce, deposit and pickup their own messages without meeting with other nodes that carried desired messages.
 The size and shape of  Rendezvous place can be adapted to the environment of OppNet nodes in the area.
 We define our routing model in two functions: predictable  and non-predictable behavior OppNet node functions.
-The result suggest that our protocols perform significant higher in delivery performance which is the trade off of delivery ratio per energy consumption.
+The result suggest that our protocols perform significant higher in protocol performance which is the trade off of delivery ratio per energy consumption.
 We can simply imply that if the location of rendezvous place can be predicted, we can achieve highest network performance.
-Our experiment also suggest that the OppNet node can gain higher delivery performance when the time interval of power saving mode is longer and the minimum radio range is higher.
+Our experiment also suggest that the OppNet node can gain higher protocol performance when the time interval of power saving mode is longer and the minimum radio range is higher.
 In the future work, this concept of smart node can be further extend to increase the intelligence of the node since the technologies are advanced rapidly.
 
 
