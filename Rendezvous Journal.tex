@@ -297,6 +297,14 @@ In this Equation, $P$ is the target protocol while $B$ is the baseline protocol 
 $M$ is the message number transmitted by OppNet nodes, excluding Rendezvous node in Rendezvous place.
 The average transmission radius is referred as $r$ while $\alpha$ is the power consumption exponent factor [2,4] which we are using the value of 2 for our simulation.
 
+In addition, we can determine the relative energy consumption $E_c$ by comparing the unit of power usage per unit of based protocol as in Eq. \ref{eq:EnergyConsumption}.
+
+\begin{eqnarray}
+\label{eq:EnergyConsumption}
+E_c^{P,B} = c \cdot \frac{M_P \cdot r_P^2}{M_B \cdot r_B^2}
+\end{eqnarray}
+
+
 
 \subsection{Simulation Results}
 
@@ -320,8 +328,8 @@ The following subsections include the results of each set of simulations.
 \label{Protocol Performance per Node Density}
 \end{figure}
 
-Firstly, the comparison of delivery ratio is shown in Fig. \ref{Delivery Ratio per Node Density} while $x-axis$ represents the node density (the number of nodes in the area of 1 $km^2$) and $y-axis$ shows the delivery ratio.
-In our simulation, we assume the environment with 1 Rendezvous node and the ratio of time interval factor between full power and power saving, $\tau_s$ of 0.5.
+Firstly, the comparison of delivery ratio is shown in Fig. \ref{Delivery Ratio per Node Density}, where $x-axis$ represents the node density (the number of nodes in the area of one $km^2$) and $y-axis$ shows the delivery ratio.
+In our simulation, we assume the environment of one Rendezvous node and the ratio of time interval between full power and power saving, $\tau_s$ of 0.5.
 
 Fig. \ref{Delivery Ratio per Node Density} shows that our proposed protocols gain slightly better delivery ratio in the dense environment.
 On the other hand, the proposed protocols gain significantly higher delivery ratio in the sparse environment by maintaining the ratio up to 80\%, even when node density is as low as 50 $nodes/km^2$ in non-predictable behavior or as low as 5 $nodes/km^2$ nodes in predictable behavior.
@@ -333,16 +341,29 @@ In addition, with the knowledge of node gathering-area, the delivery ratio can b
 
 Furthermore, the proposed protocols utilize less energy consumption which is a vital factor in opportunistic network because the mobile nodes in this scheme are usually equipped with limited power resources that the performance can be seen in Fig. \ref{Protocol Performance per Node Density}.
 Similar to graph of delivery ratio, we compare the protocol performance ($y-axis$) on node density ($x-axis$), in which the $P_p$ can be calculated from Eq. \ref{eq:protocol_performance}.
-It can be obviously seen that the proposed protocols in Fig. \ref{Protocol Performance per Node Density} can save about half of energy consumption in order to achieve the same delivery ratio in the dense environment.
-Nevertheless, the propose protocol use only 25\% power consumption in sparse environment.
+%%
+It can be obviously seen that the proposed protocols in Fig. \ref{Protocol Performance per Node Density} gain significant high protocol performance with the node density below 150 nodes/$km^2$.
+%5
+Therefore, our protocol can gain higher delivery ratio while minimizing the energy consumption especially in the extreme sparse environment.
+%5
 The better protocol performance results from the lower messages number of our proposed protocols compare to the Epidemic counter part as can see in Fig. \ref{Number of Created Messages per Node Density}.
-Additionally, the other factor that impact the higher protocol performance is the lower average wireless transmission of our proposed protocol.
+%5
+Additionally, Fig. \ref{Energy Consumption per Node Density} shows the relative energy consumption which suggests that our proposed protocol utilize less energy around 60\% comparing with traditional Epidemic protocol.
+%%
+
 
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=2.5in]{Graphs/messages.pdf}
 	\caption{Number of Created Messages per Node Density}
 	\label{Number of Created Messages per Node Density}
+\end{figure}
+
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=2.5in]{Graphs/EnergyConsumption.pdf}
+	\caption{Energy Consumption per Node Density}
+	\label{Energy Consumption per Node Density}
 \end{figure}
 
 \subsubsection{Power saving factor}

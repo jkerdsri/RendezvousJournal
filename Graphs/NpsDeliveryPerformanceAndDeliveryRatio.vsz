@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.21)
-# Saved at 2014-09-17T06:25:59.982503
+# Saved at 2014-09-25T10:21:11.336365
 
 AddImportPath(u'/Volumes/Storage/Dropbox/RendezvousJournal/Graphs')
 ImportFileCSV(u'Data for 2nd Journal - PowerSavingFactor.csv', linked=True)
@@ -67,6 +67,7 @@ Set('key', u'D_{r} of 300 nodes/km^2')
 To('..')
 Add('axis', name=u'y2', autoadd=False)
 To(u'y2')
+Set('hide', True)
 Set('label', u'Delivery Performance')
 Set('log', False)
 Set('mode', u'numeric')
@@ -81,6 +82,7 @@ Set('marker', u'circlehole')
 Set('color', u'blue')
 Set('xData', u'Nps')
 Set('yData', u'DeliveryPerformance \n[100]')
+Set('hide', True)
 Set('key', u'D_{p} of 100 nodes/km^2')
 Set('labels', u'')
 Set('scalePoints', [])
