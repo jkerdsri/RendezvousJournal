@@ -403,9 +403,7 @@ From Fig. \ref{The Optimum between Delivery Ratio and protocol Performance}, the
 %%
 This implies that in the attempt of saving the energy, the deliverable of messages are effected from the wireless range reduction.
 %%
-On the other hand, the protocol performance is increasing with the value of power saving factor which shows that the higher the $n_{ps}$, the higher the protocol performance.
-%%
-Overall, the key point of Fig. \ref{The Optimum between Delivery Ratio and protocol Performance} is the cross point between delivery ratio and protocol performance which can see at $n_{ps} = 0.55$ which is the optimum point of our method.
+This graph also shows that the delivery ratio increases with node density since the protocol can perform better with enough number of collaborative nodes. 
 
 
 
@@ -451,6 +449,14 @@ Overall, the key point of Fig. \ref{The Optimum between Delivery Ratio and proto
 \caption{$R_c^{max}/R_{rv}$ ratio}
 \label{$R_c^{max}/R_{rv}$ ratio}
 \end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{Graphs/movement.pdf}
+\caption{Movement Model Comparison}
+\label{Movement Model Comparison}
+\end{figure}
+
 We investigate the main parameters effecting the environment of $N_{rv}$ in this part.
 In Fig. \ref{Multiple Rendezvous Nodes}, the number of $N_{rv}$ are varied from one to four nodes in our simulation.
 The result shows similar trend of overall delivery ratio which slightly declining when the node density decreases.
@@ -459,6 +465,12 @@ The results suggest that more number of rendezvous node can gain higher delivery
 Fig. \ref{$R_c^{max}/R_{rv}$ ratio} shows the relationship between $R_c^{max}$ and $R_{rv}$ over the delivery ratio, starting from  $R_c^{max}/R_{rv}$ ratio of 0.1 to 1.0.
 This graph shows moderate incrementing in delivery ratio when the ratio of $R_c^{max}/R_{rv}$ increases.
 The result suggests that the value of $R_c^{max}$ has slightly effect on delivery ratio. 
+
+Lastly, the graph from Fig. \ref{Movement Model Comparison} shows that our protocol can perform higher delivery ratio when the movement model is in the group.
+%%
+However, when the movement of nodes are total random, the delivery ratio decreases.
+%%
+This is the result from our protocol that can work well when node are forming the group but not in the individual form of moving.
 
 %\subsubsection{Effect of time interval on operational modes}
 %Since the key benefit of our protocol is the dynamic radio range, the trade off of energy consumption and delivery ratio requires to be analyzed.
