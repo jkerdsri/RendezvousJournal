@@ -218,12 +218,13 @@ While the $\delta\left( d_{j} \right)$ is the on-off function to include only th
 
 The Rendezvous node will decide to stop at the expected node-gathering area when the number of OppNet nodes in the current Rendezvous place ($\gamma_{c}$) become greater than the predefined Rendezvous place node threshold, $\Gamma_{c}$ as shown in Fig. \ref{Rendezvous node movements}.  
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Evaluation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The objective of the evaluations is to analyze the performance of our proposed protocol on the sparse network environment comparing with traditional OppNet protocols.
 We compare both predictable and non-predictable behavior OppNet nodes with the commonly well-known Epidemic protocol\cite{Vahdat2000} under different node density environments.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation setup}
 We setup a simulation environment using ONE (Opportunistic Network Environment) \cite{Keranen2009b}, which is a powerful tool designed for running opportunistic network simulation with various routing protocols and different movement models.
 All the results are obtained by averaging over a few hundreds independent simulation runs with different seeds.
@@ -238,6 +239,7 @@ If $N$ nodes are distributed in a square grid of size $M \times M \quad{ m }^{ 2
 The wireless range of our OppNet node can be adjusted depending on the environment while the node velocity is equal to the normal human walking speed.
 The common parameters are summarized in Table \ref{table_parameters}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Metric}
 \begin{table}[!t]
 	\renewcommand{\arraystretch}{1.3}
@@ -265,7 +267,7 @@ In this paper, we focus on delivery ratio and network overhead in term of energy
 We assume that all messages delivered within the deadline has no difference in protocol performance.
 
 % Opportunistic routing protocols are commonly evaluated by delivery ratio, median latency and network overhead.
-% However, we required specific composite metrics in order to clearly observe the performance of our proposed protocol. 
+% However, we required specific composite metrics in order to clearly observe the performance of our proposed protocol.
 % In our evaluation we consider the following metrics:
 
 \paragraph{Delivery ratio ($D_{r}$)} is defined as the ratio of the total number of messages successfully delivered within the deadline ($ { M }_{ delivered }$) to the total number of messages created from the source nodes that need to be delivered ($ { M }_{ created }$) as shown in Eq. \ref{delivery_ratio}.
@@ -275,9 +277,11 @@ We assume that all messages delivered within the deadline has no difference in p
 	D_{r} =\frac { { M }_{ delivered } }{ { M }_{ created } } 
 	\end{equation}
 
-\paragraph{Energy consumption ($E_{c}$)} is defined as the amount of energy consumption required by all related OppNet nodes to deliver all $M_{created}$ messages.
+\paragraph{Energy consumption ($E_{c}$)} is defined as the amount of energy consumption required by all related OppNet nodes to deliver one messages.
+%all $M_{created}$ messages.
 %%
-We simplify the energy consumption model by only considering for the communication energy consumption of the wireless interface to transmit all necessary protocol packets, $M_{packet}$.
+% We simplify the energy consumption model by only considering for the communication energy consumption of the wireless interface to transmit all necessary protocol packets, $M_{packet}$.
+We simplify the energy consumption model by only considering for the communication energy consumption of the wireless interface to transmit a message by determining the number of all necessary protocol packets, $M_{packet}$ per number of $M_{created}$ messages.
 %%
 To transmit an $L$ bit-length packet using radio interface with transmission length, $d$, the consumed energy, ${ E }_{ T }$, can be determined by Eq.\ref{eq:enegy} \cite{Yang2010, Wang2006}, where $\alpha$ is the power loss component with $\alpha \in \left[ 2,4 \right]$ and $\epsilon { f }_{ s }\left[ J/(bit/{ m }^{ \alpha  }) \right]$ is the amount of energy consumed by an amplifier to transmit one bit data at an acceptable quality level.
 
@@ -290,7 +294,7 @@ As a result, all energy consumption ($E_c$) can be derived as Eq. \ref{eq:enegy_
 
 \begin{IEEEeqnarray}{rCl}
 	\label{eq:enegy_consumed}
-	{ E }_{ c }\quad =\quad M_{packet}\cdot L_p \cdot  { \epsilon  }_{ fs } \cdot  { r }^{ 2 }
+	{ E }_{ c }\quad =\quad \frac{M_{packet}}{M_{created}} \cdot L_p \cdot  { \epsilon  }_{ fs } \cdot  { r }^{ 2 }
 \end{IEEEeqnarray} 
 
 Note that $L_p$ is the size of protocol packet, $r$ is the radio transmission range of the protocol and $\alpha$ is equal to two in our simulations.
@@ -349,7 +353,7 @@ In this Equation, $P$ is the target protocol while $B$ is the baseline protocol 
 % \end{eqnarray}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation Results}
 
 
@@ -374,7 +378,7 @@ The following subsections include the results of each set of simulations.
 
 Firstly, the comparison of delivery ratio is shown in Fig. \ref{Delivery Ratio per Node Density}, where $x-axis$ represents the node density (the number of nodes in the area of one $km^2$) and $y-axis$ shows the delivery ratio.
 In our simulation, we assume the environment of one Rendezvous node and the ratio of time interval between full power and power saving, $\tau_s$ of 0.5.
-
+%
 Fig. \ref{Delivery Ratio per Node Density} shows that our proposed protocols gain slightly better delivery ratio in the dense environment.
 On the other hand, the proposed protocols gain significantly higher delivery ratio in the sparse environment by maintaining the ratio up to 80\%, even when node density is as low as 50 $nodes/km^2$ in non-predictable behavior or as low as 5 $nodes/km^2$ nodes in predictable behavior.
 Over all in average, our proposed protocols gain approximately 40\% higher delivery ratio than existing traditional Epidemic routing.
@@ -384,22 +388,24 @@ However, in the sparse network, the Rendezvous nodes can help facilitating the m
 In addition, with the knowledge of node gathering-area, the delivery ratio can be further increased especially in the extremely low node density.
 
 Furthermore, the proposed protocols utilize less energy consumption which is a vital factor in opportunistic network because the mobile nodes in this scheme are usually equipped with limited power resources that the performance can be seen in Fig. \ref{Protocol Performance per Node Density}.
-Similar to graph of delivery ratio, we compare the protocol performance ($y-axis$) on node density ($x-axis$), in which the $P_p$ can be calculated from Eq. \ref{eq:protocol_performance}.
+Similar to graph of delivery ratio, we compare the protocol performance ($y-axis$) on node density ($x-axis$), in which the $P_{\Psi}$ can be calculated from Eq. \ref{eq:protocol_performance}.
 %%
-It can be obviously seen that the proposed protocols in Fig. \ref{Protocol Performance per Node Density} gain significant high protocol performance with the node density below 150 nodes/$km^2$.
+It can be obviously seen that the proposed protocols in Fig. \ref{Protocol Performance per Node Density} gain significant high protocol performance with the node density below 100 nodes/$km^2$.
 %5
 Therefore, our protocol can gain higher delivery ratio while minimizing the energy consumption especially in the extreme sparse environment.
 %5
-The better protocol performance results from the lower messages number of our proposed protocols compare to the Epidemic counter part as can see in Fig. \ref{Number of Generated Protocol Packets}.
+Fig. \ref{Number of Generated Protocol Packets} shows the number of protocol packets, $M_{packet}$ per $M_{created}$ which represent the amount of packet generated for sending 1 message.
+%
+The graph shows that the our proposed protocols generate less  $M_{packet}/M_{created}$ than Epidemic counterpart.
 %5
-Additionally, Fig. \ref{Energy Consumption per Node Density} shows the relative energy consumption which suggests that our proposed protocol utilize less energy around 60\% comparing with traditional Epidemic protocol.
+Additionally, Fig. \ref{Energy Consumption per Node Density} shows the comparison of energy consumption in term of $ L_p \cdot  { \epsilon  }_{ fs }$ which suggests that our proposed protocol utilize less energy than traditional Epidemic protocol.
 %%
 
 
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=2.5in]{Graphs/messages.pdf}
-	\caption{Number of Created Messages per Node Density}
+	\caption{Number of Generated Protocol Packets per Created Messages on Node Density}
 	\label{Number of Generated Protocol Packets}
 \end{figure}
 
@@ -431,7 +437,7 @@ In this section, we study the factors effecting the power saving and the trade-o
 %%
 We define the Power Saving Factor, $n_{ps}$ as the energy consumption parameter to analyze the power utilization of our proposed protocol which can be determined as in Eq. \ref{nps}.
 %%
-In the simulation, we select the density of 100, 200 and 300 nodes to study the impact of power saving factor to the delivery ratio on different density envioronment.
+In the simulation, we select the density of 100, 200 and 300 nodes to study the impact of power saving factor to the delivery ratio on different density environment.
 
 \begin{equation}
 { n }_{ ps }={ \tau  }_{ s }\cdot \frac { { r }_{ c }^{ max }-{ r }_{ c }^{ min } }{ { r }_{ c }^{ max } } 
@@ -445,11 +451,18 @@ In the simulation, we select the density of 100, 200 and 300 nodes to study the 
 \label{The Optimum between Delivery Ratio and protocol Performance}
 \end{figure}
 
-From Fig. \ref{The Optimum between Delivery Ratio and protocol Performance}, the graph presents the declining in the delivery ratio when the value of $n_{ps}$ increases.
+
+
+
+Fig. \ref{The Optimum between Delivery Ratio and protocol Performance} shows the delivery ratio and energy consumption on power saving factor. 
 %%
-This implies that in the attempt of saving the energy, the deliverable of messages are effected from the wireless range reduction.
+The higher $n_{ps}$ presents less power utilization which can see that the delivery ratio declines with the power saving factor.
 %%
-This graph also shows that the delivery ratio increases with node density since the protocol can perform better with enough number of collaborative nodes. 
+This means the attempt to save the energy can reduce the delivery ratio.
+%%
+However, on the right $y-axis$ of energy consumption can show that the higher power saving factor results in lower energy consumption.
+%%
+From this graph, the higher density of nodes illustrates in the higher delivery ratio and energy consumption. 
 
 
 
@@ -555,7 +568,9 @@ The size and shape of  Rendezvous place can be adapted to the environment of Opp
 We define our routing model in two functions: predictable  and non-predictable behavior OppNet node functions.
 The result suggest that our protocols perform significant higher in protocol performance which is the trade off of delivery ratio per energy consumption.
 We can simply imply that if the location of rendezvous place can be predicted, we can achieve highest network performance.
-Our experiment also suggest that the OppNet node can gain higher protocol performance when the time interval of power saving mode is longer and the minimum radio range is higher.
+%%
+% Our experiment also suggest that the OppNet node can gain higher protocol performance when the time interval of power saving mode is longer and the minimum radio range is higher.
+%%
 In the future work, this concept of smart node can be further extend to increase the intelligence of the node since the technologies are advanced rapidly.
 
 

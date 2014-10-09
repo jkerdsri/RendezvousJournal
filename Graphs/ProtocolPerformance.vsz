@@ -1,9 +1,8 @@
 # Veusz saved document (version 1.21)
-# Saved at 2014-09-25T10:09:50.273882
+# Saved at 2014-10-08T01:52:59.242581
 
 AddImportPath(u'/Volumes/Storage/Dropbox/RendezvousJournal/Graphs')
-ImportFileCSV(u'Data for 2nd Journal - Protocol Performance.csv', delimiter='\t', linked=True)
-ImportFileCSV(u'Data for 2nd Journal - Protocol Performance.csv', linked=True)
+ImportFileCSV(u'ProtocolPerformance.csv', delimiter='\t', linked=True)
 Add('page', name='page1', autoadd=False)
 To('page1')
 Add('graph', name='graph1', autoadd=False)
@@ -33,7 +32,7 @@ To('..')
 Add('axis', name='y', autoadd=False)
 To('y')
 Set('label', u'Protocol Performance')
-Set('min', 'Auto')
+Set('min', -5.0)
 Set('max', 'Auto')
 Set('log', False)
 Set('direction', 'vertical')
