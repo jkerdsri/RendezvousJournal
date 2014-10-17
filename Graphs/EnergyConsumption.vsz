@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.21)
-# Saved at 2014-10-08T01:23:36.462510
+# Saved at 2014-10-16T13:29:33.222784
 
 AddImportPath(u'/Volumes/Storage/Dropbox/RendezvousJournal/Graphs')
 ImportFileCSV(u'EnergyConsumption.csv', delimiter='\t', linked=True)
@@ -31,7 +31,7 @@ Set('MinorGridLines/hide', False)
 To('..')
 Add('axis', name='y', autoadd=False)
 To('y')
-Set('label', u'E_c')
+Set('label', u'Energy Consumption (E_{c})')
 Set('min', 'Auto')
 Set('max', 'Auto')
 Set('log', False)

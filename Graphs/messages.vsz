@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.21)
-# Saved at 2014-10-07T13:40:16.615727
+# Saved at 2014-10-17T01:54:18.133136
 
 AddImportPath(u'/Volumes/Storage/Dropbox/RendezvousJournal/Graphs')
 ImportFileCSV(u'messages.csv', delimiter='\t', linked=True)
@@ -35,7 +35,7 @@ Set('MinorGridLines/hide', False)
 To('..')
 Add('axis', name='y', autoadd=False)
 To('y')
-Set('label', u'M_{packets} / M_{created}')
+Set('label', u'Number of Generated Protocol Packets per Created Messages')
 Set('mode', u'numeric')
 Set('datascale', 0.0625)
 Set('direction', u'vertical')

@@ -1,7 +1,7 @@
 # Veusz saved document (version 1.21)
-# Saved at 2014-08-13T14:43:59.483490
+# Saved at 2014-10-15T09:00:29.213265
 
-AddImportPath(u'/Volumes/Storage/Dropbox/Second Journal/Journal in 2 Column/Graphs')
+AddImportPath(u'/Volumes/Storage/Dropbox/RendezvousJournal/Graphs')
 ImportFileCSV(u'Transpose-Delivery Ratio.csv', headermode='none', linked=True, renames={u'col1': u'Node Density', u'col2': u'Epidemic', u'col3': u'DRONE Dynamic', u'col4': u'DRONE Predefined'})
 Add('page', name='page1', autoadd=False)
 To('page1')
@@ -35,7 +35,7 @@ Set('MinorGridLines/hide', False)
 To('..')
 Add('axis', name='y', autoadd=False)
 To('y')
-Set('label', u'Delivery Ratio')
+Set('label', u'Delivery Ratio (D_{r})')
 Set('direction', 'vertical')
 Set('match', u'')
 Set('Label/atEdge', False)
