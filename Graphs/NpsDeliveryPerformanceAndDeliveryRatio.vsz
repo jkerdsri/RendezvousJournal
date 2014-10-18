@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.21)
-# Saved at 2014-10-17T11:11:40.721914
+# Saved at 2014-10-18T02:59:07.105366
 
 AddImportPath(u'/Volumes/Storage/Dropbox/RendezvousJournal/Graphs')
 ImportFileCSV(u'NpsDeliveryPerformanceAndDeliveryRatio.csv', delimiter='\t', linked=True)
@@ -64,6 +64,7 @@ Set('marker', u'diamond')
 Set('color', u'green')
 Set('xData', u'Nps')
 Set('yData', u'DeliveryRatio\n[200]')
+Set('hide', True)
 Set('key', u'D_{r}  [200] ')
 To('..')
 Add('xy', name=u'DeliveryRatio300', autoadd=False)
@@ -106,7 +107,7 @@ Set('marker', u'squashbox')
 Set('color', u'magenta')
 Set('xData', u'Nps')
 Set('yData', u'Ec[200]')
-Set('hide', False)
+Set('hide', True)
 Set('key', u'E_{c}  [200] ')
 Set('labels', u'')
 Set('scalePoints', [])

@@ -454,105 +454,56 @@ The proposed protocol performance can achieve up to 20 times of the existing Epi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsubsection{Impact from power saving factor}
-
-\begin{equation}
-{ n }_{ ps }={ \tau  }_{ s }\cdot \frac { { r }_{ c }^{ max }-{ r }_{ c }^{ min } }{ { r }_{ c }^{ max } } 
-\label{nps}
-\end{equation}
-
-In this subsection, we study protocol parameters relevant to the power saving factor and the trade-off between power consumption and delivery ratio.
-%
-We define the power saving factor, $n_{ps}$ as the composite parameters of the proposed protocol as in Eq. \ref{nps}.
-%
-The $n_{ps}$ is mainly calculated from the time being in power saving mode, $\tau_s$ and the portion of energy consumption used when being in such power saving mode.
-%
-The value of $n_{ps}$ is in [0,1] range where its minimum value (no saving) represents either OppNet nodes never operate in power saving mode of the proposed protocol or the maximum energy consumption ($r_c^{min} = r_c^{max}$) is used in such mode.
-%
-The opposite behavior in power saving mode is for the maximum $n_ps$.
-%
 \begin{figure}[!t]
 \centering
 \includegraphics[width=2.5in]{Graphs/NpsDeliveryPerformanceAndDeliveryRatio.pdf}
 \caption{Delivery Ratio and Energy Consumption on Power Saving Factor}
 \label{The Optimum between Delivery Ratio and protocol Performance}
 \end{figure}
+
+\subsubsection{Impact from power saving factor}
+
+In this subsection, we study protocol parameters relevant to the power saving factor and the trade-off between power consumption and delivery ratio.
+%
+We define the power saving factor, $n_{ps}$ as the composite parameters of the proposed protocol as in Eq. \ref{nps}.
+%
+\begin{equation}
+{ n }_{ ps }={ \tau  }_{ s }\cdot \frac { { r }_{ c }^{ max }-{ r }_{ c }^{ min } }{ { r }_{ c }^{ max } } 
+\label{nps}
+\end{equation}
+The $n_{ps}$ is mainly calculated from the time being in power saving mode, $\tau_s$ and the portion of energy consumption used when being in such power saving mode.
+%
+The value of $n_{ps}$ is in [0,1] range where its minimum value (no saving) represents either OppNet nodes never operate in power saving mode of the proposed protocol or the maximum energy consumption ($r_c^{min} = r_c^{max}$) is used in such mode.
+%
+The opposite behavior in power saving mode is for the maximum $n_ps$.
 %
 Fig. \ref{The Optimum between Delivery Ratio and protocol Performance} shows both delivery ratio ($D_r$ on solid line) and energy consumption ($E_c$ on dash line) when varying power saving factor ($n_{ps}$).
 %
+The graph shows that when $n_{ps}$ increases the value of $E_c$ and $D_r$ decreased as expected.
+%
+In fact, the optimum of $n_{ps}$ depends on the real applications.
+%
+In the application with the level of acceptable minimum $D_r$ as a threshold, we can select the $n_{ps}$ that gives the minimum $E_c$.
+%
+On the other hand, we can select the $n_{ps}$ that gives the maximum $D_r$ if the threshold of acceptable maximum $E_c$ is defined.
+%
+Finally, if both the minimum $D_r$ and maximum $E_c$ are defined, we can get the $n_{ps}$ value that suit the application.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsubsection{Other network environment parameters}
 
-
-
-
-
-% In this section, we study the factors effecting the power saving and the trade-off between power consumption and delivery ratio.
-% %%
-% We define the Power Saving Factor, $n_{ps}$ as the energy consumption parameter to analyze the power utilization of our proposed protocol which can be determined as in Eq. \ref{nps}.
-% %%
-% In the simulation, we select the density of 100, 200 and 300 nodes to study the impact of power saving factor to the delivery ratio on different density environment.
-
-
-
-
-
-
-
-
-% Fig. \ref{The Optimum between Delivery Ratio and protocol Performance} shows the delivery ratio and energy consumption on power saving factor. 
-% %%
-% The higher $n_{ps}$ presents less power utilization which can see that the delivery ratio declines with the power saving factor.
-% %%
-% This means the attempt to save the energy can reduce the delivery ratio.
-% %%
-% However, on the right $y-axis$ of energy consumption can show that the higher power saving factor results in lower energy consumption.
-% %%
-% From this graph, the higher density of nodes illustrates in the higher delivery ratio and energy consumption. 
-
-
-
-% Fig. \ref{Delivery Ratio per Power Saving Factor} shows the effect of power saving factor on delivery ratio.
-% %%
-% This graph presents the declining in the delivery ratio when the value of $n_{ps}$ increases.
-% %%
-% This implies that in the attempt of saving the energy, the deliverable of messages are effected from the reduce in the wireless range.
-% %%
-% However, the protocol performance is increasing with the power saving factor as seen in Fig. \ref{protocol performance per Power Saving Factor}.
-% %%
-% This result illustrates that in order to gain higher protocol performance, the power saving factor is also increasing.
-
-
-
-% As a result, the trade-off between the delivery ratio and protocol performance is shown in Fig. \ref{The Optimum between Delivery Ratio and protocol performance}.
-% From the graph, the optimum is on the power saving factor of 0.6
-
-
-
-
-% In this section, we study the factors effecting the power saving of the proposed protocols by analyzing the impact of $\tau_s$ on the protocol performance as seen in Fig. \ref{Utilization ratio of wake-up interval comparison}.
-% This graph varies the ratio of $\tau_s$ which is the time interval of $r_c^{min}$ over overall period, starting from 0.1 to 1.0. 
-% Additionally, Fig. \ref{Network performance per ratio range ratio} presents the delivery ratio of non-predictable Rendezvous routing over the radio range ratio, varying from 0.1 to 1.0. 
-% This radio range ratio ($R_s$) is defined by ${{ r }_{ c }^{ min }}/{{ r }_{ c }^{ max }}$ which is the minimum radio range per maximum range of the OppNet nodes.
-
-% The result from Fig. \ref{Utilization ratio of wake-up interval comparison} shows that the value of $\tau_s$ varies directly to the protocol performance, which suggests that keeping the state of  operation in saving mode longer resulting in higher $D_p$.
-% Similarly, the delivery ratio from Fig. \ref{Network performance per ratio range ratio}  is increased with the higher of radio range ratio which means increasing the ${ r }_{ c }^{ min }$ will result in higher delivery ratio.
-% Therefore, to increase the protocol performance, we have to escalate the value of $\tau_s$ and $R_s$ which means maintaining the operation of power saving mode as long as possible while extending the ${ r }_{ c }^{ min }$.
-% The reason behind this result comes from Eq. \ref{eq:protocol_performance}, in which the value of radio range is the leading factor effecting the protocol performance.
-% In parallel, the time period of ${ r }_{ c }^{ min }$ state is effecting the value of $D_p$ since the result shows that the protocol performance varies directly to the $\tau_s$.
-
-\subsubsection{Rendezvous node factor}
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=2.5in]{Graphs/MultipleRVs.pdf}
 	\caption{Multiple Rendezvous Nodes}
 	\label{Multiple Rendezvous Nodes}
 \end{figure}
+
 \begin{figure}[!t]
 \centering
 \includegraphics[width=2.5in]{Graphs/RcmaxRrv.pdf}
-\caption{$R_{rv}/R_c^{max}$ ratio}
+\caption{$R_{rv}$/$R_c^{max}$ ratio}
 \label{RrvRcmaxRatio}
 \end{figure}
 
@@ -563,62 +514,41 @@ Fig. \ref{The Optimum between Delivery Ratio and protocol Performance} shows bot
 \label{Movement Model Comparison}
 \end{figure}
 
-We investigate the main parameters effecting the environment of $N_{rv}$ in this part.
-In Fig. \ref{Multiple Rendezvous Nodes}, the number of $N_{rv}$ are varied from one to four nodes in our simulation.
-The result shows similar trend of overall delivery ratio which slightly declining when the node density decreases.
-Nevertheless, the delivery ratio increase when more rendezvous nodes are injected into the environment.
-The results suggest that more number of rendezvous node can gain higher delivery ratio.
-Fig. \ref{RrvRcmaxRatio} shows the relationship between $R_c^{max}$ and $R_{rv}$ over the delivery ratio, starting from  $R_c^{max}/R_{rv}$ ratio of 0.1 to 1.0.
-This graph shows moderate incrementing in delivery ratio when the ratio of $R_c^{max}/R_{rv}$ increases.
-The result suggests that the value of $R_c^{max}$ has slightly effect on delivery ratio. 
-
-Lastly, the graph from Fig. \ref{Movement Model Comparison} shows that our protocol can perform higher delivery ratio when the movement model is in the group.
+In this subsection, we investigate other protocol and environmental parameter which may have effect to the proposed protocol performance.
+%
+Fig. \ref{Multiple Rendezvous Nodes} presents the variation on the number of Rendezvous nodes to analyze the impact on delivery ratio per node density.
+%
+This graph shows that more Rendezvous nodes can achieve more $D_r$ as expected.
+%
+In Fig. \ref{RrvRcmaxRatio}, the effect of $R_{rv}/R_c^{max}$ ratio on delivery ratio is studied.
+% 
+By increasing $R_{rv}$ (maximum radio transmission of Rendezvous node), the $D_r$ will not increase but slightly decrease.
+%
+This is the result from the asymmetric in transmission range of OppNet nodes which can degrade the delivery ratio performance in Rendezvous area, since the nodes with longer transmission range can send the messages to other nodes with shorter range, but can not receive the messages back.
 %%
-However, when the movement of nodes are total random, the delivery ratio decreases.
-%%
-This is the result from our protocol that can work well when node are forming the group but not in the individual form of moving.
+Finally, Fig. \ref{Movement Model Comparison} shows that our proposed Rendezvous protocol performance will drop if node movement become more random since the proposed protocol utilize the group gathering behavior to increase message exchanging activities.
 
-%\subsubsection{Effect of time interval on operational modes}
-%Since the key benefit of our protocol is the dynamic radio range, the trade off of energy consumption and delivery ratio requires to be analyzed.
-%Fig. \ref{Utilization ratio of wake-up interval comparison} shows the protocol performance of each node density varying by $\tau_{s}$.
-%The result clearly shows that the protocol performance increase with the value of $\tau_s$. 
-%The value of $\tau_s$ = 1 can maximize the delivery ratio.
-%This means that we should maximize the full-power mode as much as possible in order to gain better delivery ratio.
-%As a result, the significance of wireless range is higher than energy minimizing time.
-
-%\subsubsection{Impact on radio range ratio}
-%We study the impact of radio range level ratio for OppNet nodes on delivery ratio as seen in Fig. \ref{Network performance per ratio range ratio}.
-%This radio range ratio is defined by ${ r }_{ c }^{ min }/{ r }_{ c }^{ max }$ which is the minimum radio range of OppNet node per maximum range.
-%The result suggest the increasing in delivery ratio when the radio range ratio increase especially at the exponential rate at the ratio of 0.1 to 0.6.
-%However, after 0.6 ratio the delivery ratio slightly increases.
-%This means that our protocol gain higher delivery ratio if we increase the ${ r }_{ c }^{ min }$.
-
-%Rewrite the drawback
-%\subsubsection{Average latncy}
-%Fig. \ref{Average latency on node density} shows the delay of our routing protocol comparing to traditional Epidemic protocol varying by node density.
-%From the graph, our Rendezvous protocol gain slightly higher average latency than Epidemic protocol especially at 350 $nodes/km^2$.
-%This is a drawback of our protocol since the concept of smart node requires specific computation time in order to route the messages more efficiently. 
- 
-%\begin{figure}[!t]
-%	\centering
-%	\includegraphics[width=2.5in]{Graphs/latency.pdf}
-%	\caption{Average latency on node density}
-%	\label{Average latency on node density}
-%\end{figure}
 
 \section{Conclusion}
 Opportunistic Routing techniques can be applied in  plentiful variety of scenarios such as military network or wildlife monitoring. 
-In this paper, we investigate the use of rendezvous points in opportunistic network routing to increase the delivery ratio in extreme sparse network environment.
+%
+In this paper, we investigate the use of Rendezvous points in opportunistic network routing to increase the delivery ratio in extreme sparse network environment.
+%
 This novel protocol proposes the two new types of node, Rendezvous node and OppNet node, which can help maintaining the messages in one place as long as possible in order to bridge the gap of time and space domain.
+%
 In this Rendezvous place, the passing nodes can announce, deposit and pickup their own messages without meeting with other nodes that carried desired messages.
+%
 The size and shape of  Rendezvous place can be adapted to the environment of OppNet nodes in the area.
+%
 We define our routing model in two functions: predictable  and non-predictable behavior OppNet node functions.
-The result suggest that our protocols perform significant higher in protocol performance which is the trade off of delivery ratio per energy consumption.
-We can simply imply that if the location of rendezvous place can be predicted, we can achieve highest network performance.
+%
+The result suggest that our protocols perform significant higher in general protocol performance which is the trade off of delivery ratio per energy consumption.
+%
+We can simply imply that if the location of rendezvous place can be predicted, we can achieve highest overall performance.
 %%
 % Our experiment also suggest that the OppNet node can gain higher protocol performance when the time interval of power saving mode is longer and the minimum radio range is higher.
 %%
-In the future work, this concept of smart node can be further extend to increase the intelligence of the node since the technologies are advanced rapidly.
+In the future work, this concept of smart node can be further extend to increase the intelligence of the node since the technologies can be rapidly advanced.
 
 
 \section*{Acknowledgment}
