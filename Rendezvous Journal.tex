@@ -149,7 +149,10 @@ Overall, the performance of most existing algorithms are degrading in very spars
 \section{The proposed Rendezvous based OppNet system}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{System model}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{figure*}[!t]
 	\centering
 	\includegraphics[width=5.5in]{Figures/NewSystemModel.pdf}
@@ -158,16 +161,20 @@ Overall, the performance of most existing algorithms are degrading in very spars
 \end{figure*}
 
 The proposed system is designed to efficiently use the node-gathering area, i.e. Rendezvous place, for depositing the delivered messages as much as possible so that the messages can be picked up by the destination node without requiring the exact timing of direct contact between the node carrying a message and the desired destination node.
+%%
 In addition, all nodes should reserve its energy as much as possible when they are out of the Rendezvous area.
 
 As shown in Fig. \ref{System model}, the OppNet node, $N_{c}$, whose movement direction is uncontrollable, moves in the system using \textit{Power Saving Mode}  until it reaches the Rendezvous place where it will turn itself to \emph{Full Power Mode} in order to announce its arrival, deposit its carried messages and pick up the messages destined to itself, to/from the Rendezvous place.
-The Rendezvous Rumor protocol and Rendezvous Node Sweeping mechanism are used inside the Rendezvous area to let messages being exchanged more effectively without the need of direct contact between the OppNet node and the high-resource direction-controllable Rendezvous node, $N_{rv}$, which is act as the center of the Rendezvous place.
+%%
+The Rendezvous Rumor protocol and the Rendezvous Node Sweeping mechanism are used inside the Rendezvous area to facilitate the message exchange more effectively without the need of direct contact between the OppNet node and the high-resource direction-controllable Rendezvous node, $N_{rv}$, which acts as the center of the Rendezvous place.
+%%
 The Rendezvous nodes will move around the OppNet network to create suitable Rendezvous places according to the proposed \emph{Rendezvous Place Searching algorithm}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{OppNet node's operational modes: "Full Power" and "Power Saving"}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The OppNet node ($N_{c}$) is a mobile node equipped with the radio interface whose transmission rage is adjustable in range of $[{ r }_{ c }^{ min },{ r }_{ c }^{ max }]$.
+The OppNet node ($N_{c}$) is a mobile node equipped with a radio interface whose transmission range is adjustable in range of $[{ r }_{ c }^{ min },{ r }_{ c }^{ max }]$.
+%%
 The node will operate in either \emph{Full Power mode} or \emph{Power Saving mode} according to its location.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,16 +182,21 @@ The node will operate in either \emph{Full Power mode} or \emph{Power Saving mod
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In this mode, the node will use its full transmission power, ${ r }_{ c }^{ max }$, to search for nearby nodes and exchange messages.
+%
 It will switch to this mode only when getting into the Rendezvous area.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Power saving mode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The node, by default, operates in this mode if it is outside the Rendezvous place.
+%
 In this mode, it will alternately change its transmission range between ${ r }_{ c }^{ min }$ and ${ r }_{ c }^{ max }$ in the process of searching for nearby nodes.
+%
 However, if it receives the searching signal from the other node, it will switch to its full ${ r }_{ c }^{ max }$ immediately in order to increase opportunity to exchange messages with the encountered node as much as possible.
+%
 Then, it will switch back to minimum ${ r }_{ c }^{ min }$ when departing from the communicating node.
-Besides the ${ r }_{ c }^{ min }$ and ${ r }_{ c }^{ max }$ values, the ratio of the time interval being in it full ${ r }_{ c }^{ max }$ over the whole time period is a configurable parameter,$\tau_{s}$ , as shown in Fig. \ref{Operational modes}.
+%
+Besides the ${ r }_{ c }^{ min }$ and ${ r }_{ c }^{ max }$ values, the ratio of the time interval being in its full ${ r }_{ c }^{ max }$ over the whole time period is a configurable parameter, $\tau_{s}$ , as shown in Fig. \ref{Operational modes}.
 
 \begin{figure}[!t]
 	\centering
@@ -199,21 +211,29 @@ Besides the ${ r }_{ c }^{ min }$ and ${ r }_{ c }^{ max }$ values, the ratio of
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Rendezvous place is a dynamic area centered by a special controllable Rendezvous node, $N_{rv}$.
+%
 This $N_{rv}$ node is full of resources such as large message storage and high radio power with maximum transmission range $R_{rv}$.
-The Rendezvous place is controlled by the Rendezvous node using Rendezvous rumor protocol.
+%
+The Rendezvous place is controlled by the Rendezvous node using the Rendezvous rumor protocol.
 
-The area in Rendezvous place is not fixed as the maximum radio range, $R_{rv}$,  of the Rendezvous node, instead it is virtually determined by the covering radio range of the most outer OppNet nodes which can relay the data messages from the Rendezvous node, as shown in Fig. \ref{System model}
+The area in a Rendezvous place is not fixed as the maximum radio range, $R_{rv}$,  of the Rendezvous node, instead it is virtually determined by the covering radio range of the most outer OppNet nodes which can relay the data messages from the Rendezvous node, as shown in Fig. \ref{System model}.
 
-When an OppNet node detects the \emph{Rendezvous Area rumor message} $(RA)$ broadcasted from the Rendezvous node, it learns that it enters to the Rendezvous area.
-Then, it will switch its operational mode to \emph{Full Power mode} and try to rebroadcast such \emph{Rendezvous Area }rumor message so that the other reachable nearby nodes can learn about Rendezvous place and can adaptively expand the area on-demand.
-Additionally, the OppNet node in the Rendezvous area will periodically announce its arrival and upload its carried data messages to the Rendezvous node via the \emph{Keep-Alive} rumor message $(KA)$ and the \emph{Deposit} rumor message $(DP)$ respectively.
-Note that all types of rumor messages will be automatically repeated with \emph{duplication filtering} function throughout the area by other OppNet nodes.
+When an OppNet node detects the \emph{Rendezvous Area rumor message} $(RA)$ broadcasted from the Rendezvous node, it learns that it has entered to the Rendezvous area.
+%
+Then, it will switch its operational mode to \emph{Full Power mode} and try to rebroadcast such a \emph{Rendezvous Area }rumor message so that the other reachable nearby nodes can learn about the Rendezvous place and adaptively expand the area on-demand.
+%
+Additionally, the OppNet node in the Rendezvous area will periodically announce its arrival and upload its carried data messages to the Rendezvous node via the \emph{Keep-Alive} rumor message $(KA)$ and the \emph{Deposit} rumor message $(DP)$, respectively.
+%
+Note that all types of rumor messages will be automatically repeated with a \emph{duplication filtering} function throughout the area by other OppNet nodes.
 
-Once the rendezvous node receives the \emph{Keep-alive} rumor message which contains the sending node ID, it will gather all data messages destined to the node ID from its message storage, encapsulate those found messages into the created \emph{Pick-up} rumor message and then broadcast the \emph{Pick-up} message $(PU)$ throughout the Rendezvous area.
-On the other hand, the Rendezvous node will keep all of data messages contained in the received \emph{Deposit} rumor messages in its storage for later sending out to the area when the target node appears later as seen in Fig. \ref{Rendezvous Place}. 
+Once the Rendezvous node receives the \emph{Keep-alive} rumor message which contains the sending node ID, it will gather all data messages destined to the node with that ID from its message storage, encapsulate those found messages into the created \emph{Pick-up} rumor message and then broadcast the \emph{Pick-up} message $(PU)$ throughout the Rendezvous area.
+%
+On the other hand, the Rendezvous node will keep all of data messages contained in the received \emph{Deposit} rumor messages in its storage for later sending out to the area when the target node appears later, as seen in Fig. \ref{Rendezvous Place}. 
 
 In addition to the Rendezvous rumor protocol, the Rendezvous node implements the rumor message sweeping algorithm in order to increase the chance to collect as many rumor messages as possible.
-Instead of always being stationary at the center location of the Rendezvous place, the rendezvous node will periodically move to its four directions (North, East, West, South) by the distance of its radio transmission range as shown in Fig. \ref{Sweep mechanism}.
+%
+Instead of always being stationary at the center location of the Rendezvous place, the rendezvous node will periodically move to its four cardinal directions (North, East, West, South) by the distance of its radio transmission range as shown in Fig. \ref{Sweep mechanism}.
+%
 This design lets the OppNet nodes on the edge of Rendezvous node's radio range, whose radio signal may not reach to the Rendezvous node due to the difference in their radio transmission range, can speak back to the Rendezvous node.
 
 \begin{figure}[!t]
@@ -231,8 +251,12 @@ This design lets the OppNet nodes on the edge of Rendezvous node's radio range, 
 \label{Sweep mechanism}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Rendezvous place searching algorithm}
-In the proposed system, the Rendezvous node should move to find the node-gathering area corresponding with the real behavior of OppNet node.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In the proposed system, the Rendezvous node should move to find the node-gathering area corresponding with the real behavior of OppNet nodes.
+%
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=2.5in]{Figures/Dynamic.pdf}
@@ -244,18 +268,22 @@ In the proposed system, the Rendezvous node should move to find the node-gatheri
 \subsubsection{Predictable behavior OppNet nodes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In some applications, the movement of OppNet node is somehow predictable.
+In some applications, the movement of OppNet nodes is somehow predictable.
 Take a wildlife monitoring as an example, most animals are usually cyclically gathering in the high supplies area such as along side of the main river of some specific place at some specific time \cite{Yu2007}.
-In these applications, the Rendezvous nodes can be programmed to be located at those areas at the proper time in order to maximize the effectiveness of the proposed system.
+%
+In these applications, the Rendezvous nodes can be programmed to station at those areas at the proper time in order to maximize the effectiveness of the proposed system.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Non-Predictable behavior OppNet nodes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Without any priori knowledge about OppNet node, the proposed \emph{dynamic Rendezvous Place Searching Algorithm} can be used to guide the Rendezvous nodes to the node-gathering area.
-The Rendezvous node will decide to move to the new node gathering location if the number of OppNet node in the current Rendezvous place ($\eta_{c}$) falls below the predefined departure node threshold, $H_{d}$.
+Without any priori knowledge about OppNet nodes, the proposed \emph{dynamic Rendezvous Place Searching Algorithm} can be used to guide the Rendezvous nodes to the node-gathering area.
+%
+The Rendezvous node will decide to move to the new node gathering location if the number of OppNet nodes in the current Rendezvous place ($\eta_{c}$) falls below the predefined departure node threshold, $H_{d}$.
+%
 The movement direction, $\vec{\Delta}$, will be determined periodically based on the collected statistical data from both previously contacting OppNet nodes and other neighboring Rendezvous nodes as in Eq.\ref{DirectionParameter}.
-In the equation, $\vec{w_c}$ is the departure directional unit vector of the contacted OppNet nodes, $\vec{w_r}$ is the directional unit vector of the other Rendezvous nodes and the $\varphi$ is a configurable weighting factor between group of OppNet nodes and group of other Rendezvous nodes in the area.
+%
+In the equation, $\vec{w_c}$ is the departure directional unit vector of the contacted OppNet nodes, $\vec{w_r}$ is the directional unit vector of the other Rendezvous nodes and $\varphi$ is a configurable weighting factor between a group of OppNet nodes and a group of other Rendezvous nodes in the area.
 
 \begin{eqnarray}
 \label{DirectionParameter}
@@ -263,17 +291,18 @@ In the equation, $\vec{w_c}$ is the departure directional unit vector of the con
 	\vec { {w }_{ rv }^{ j } }  }
 \end{eqnarray}
 
-While the $\delta\left( d_{j} \right)$ is the on-off function to include only the other Rendezvous nodes whose distance $d_j$ is the range of cut-off distance perimeter, $D_{cc}$, and the  $C$ and $R$ are the number of contacted OppNet nodes and the number of other Rendezvous nodes respectively.
+While $\delta\left( d_{j} \right)$ is the on-off function to include only the other Rendezvous nodes whose distance $d_j$ is the range of cut-off distance perimeter, $D_{cc}$, and $C$ and $R$ are the number of contacted OppNet nodes and the number of other Rendezvous nodes, respectively.
 
 \[\delta \left( { d }_{ j } \right) =\begin{cases} 1\quad ;\quad { d }_{ j }\quad \le { \quad D }_{ cc } \\ 0\quad ;\quad { d }_{ j }\quad >{ \quad D }_{ cc } \end{cases}  \] 
 
-The Rendezvous node will decide to stop at the expected node-gathering area when the number of OppNet nodes in the current Rendezvous place ($\gamma_{c}$) become greater than the predefined Rendezvous place node threshold, $\Gamma_{c}$ as shown in Fig. \ref{Rendezvous node movements}.  
+The Rendezvous node will decide to stop at the expected node-gathering area when the number of OppNet nodes in the current Rendezvous place ($\gamma_{c}$) becomes greater than the predefined Rendezvous place node threshold, $\Gamma_{c}$ as shown in Fig. \ref{Rendezvous node movements}.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Evaluation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The objective of the evaluations is to analyze the performance of our proposed protocol on the sparse network environment comparing with traditional OppNet protocols.
-We compare both predictable and non-predictable behavior OppNet nodes with the commonly well-known Epidemic protocol\cite{Vahdat2000} under different node density environments.
+The objective of the evaluation is to analyze the performance of our proposed protocol on the sparse network environment comparing with traditional OppNet protocols.
+%
+We compare both predictable and non-predictable behavior OppNet nodes with the commonly well-known Epidemic protocol\cite{Vahdat2000} under different node-density environments.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation setup}
@@ -282,22 +311,22 @@ We setup a simulation environment using ONE (Opportunistic Network Environment) 
 %%
 All the results are obtained by averaging over a few hundreds independent simulation runs with different seeds.
 %%
-For the OppNet simulation model, the main parameter that largely effected the evaluation performance is the movement model.
+For the OppNet simulation model, the main parameter that largely affects the evaluation performance is the movement model.
 %%
-In our evaluation, we deploy Group movement model instead of the most commonly used, Random Way Point (RWP) model \cite{Batabyal2012}, to correctly capture the the actual behavior of node movements.
+In our evaluation, we deploy the Group movement model instead of the most commonly used, Random Way Point (RWP) model \cite{Batabyal2012}, to correctly capture the the actual behavior of node movements.
 %%
-In fact, several multi-hop wireless network scenarios are most realistically represented using Group movement model \cite{Blakely2004} which represents the random motion of a group of mobile nodes as well as the random motion of each individual mobile node within the group.
+In fact, several multi-hop wireless network scenarios are most realistically represented using the Group movement model \cite{Blakely2004} which represents the random motion of a group of mobile nodes as well as the random motion of each individual mobile node within the group.
 %%
 This is the vital case for modeling the routing simulation in OppNet since the movements in several cases are in swarm behavior, in which nodes are aggregating together and moving in some directions, such as the movement of animals or military tactical operations.
 %%
-The other parameters that mainly effect the evaluation performance are the area of operation, the wireless range of the nodes, node velocity and spatial location of the nodes \cite{Batabyal2012}. 
+The other parameters that mainly effect the evaluation performance are the area of operation, the wireless range of the nodes, node velocity and spatial locations of the nodes \cite{Batabyal2012}. 
 %%
-In our simulation, we fix the number of nodes while increasing and decreasing the area of operation which results in wide range of node density parameter for evaluation.
+In our simulation, we fix the number of nodes while increasing and decreasing the area of operation which results in a wide range of node density parameters for evaluation.
 %%
 Node density ($\lambda$) is defined as the number of nodes per unit area. 
 If $N$ nodes are distributed in a square grid of size $M \times M \quad{ m }^{ 2 }$ then the $\lambda$ is given by $\lambda =\frac { N }{ { M }^{ 2 } } $ . 
 %%
-The wireless range of our OppNet node can be adjusted depending on the environment while the node velocity is equal to the normal human walking speed.
+The wireless range of our OppNet node can be adjusted depending on the environment, while the node velocity is equal to the normal human walking speed.
 %%
 The common parameters are summarized in Table \ref{table_parameters}.
 
@@ -326,7 +355,7 @@ The common parameters are summarized in Table \ref{table_parameters}.
 
 Opportunistic routing protocols are commonly evaluated by delivery ratio, median latency and network overhead.
 %%
-In this paper, we focus on delivery ratio and network overhead in term of energy consumed to deliver a message within a specific message deadline.
+In this paper, we focus on delivery ratio and network overhead in terms of energy consumed to deliver a message within a specific message deadline.
 %%
 We assume that all messages delivered within the deadline has no difference in protocol performance.
 
@@ -334,34 +363,34 @@ We assume that all messages delivered within the deadline has no difference in p
 % However, we required specific composite metrics in order to clearly observe the performance of our proposed protocol.
 % In our evaluation we consider the following metrics:
 
-\paragraph{Delivery ratio ($D_{r}$)} is defined as the ratio of the total number of messages successfully delivered within the deadline ($ { M }_{ delivered }$) to the total number of messages created from the source nodes that need to be delivered ($ { M }_{ created }$) as shown in Eq. \ref{delivery_ratio}.
+\paragraph{Delivery ratio ($D_{r}$)} 
+is defined as the ratio of the total number of messages successfully delivered within the deadline ($ { M }_{ delivered }$) to the total number of messages created from the source nodes that need to be delivered ($ { M }_{ created }$) as shown in Eq. \ref{delivery_ratio}.
 
 	\begin{equation}
 	\label{delivery_ratio}
 	D_{r} =\frac { { M }_{ delivered } }{ { M }_{ created } } 
 	\end{equation}
 
-\paragraph{Energy consumption ($E_{c}$)} is defined as the amount of energy consumption required by all related OppNet nodes to deliver one $M_{created}$ message.
-%all $M_{created}$ messages.
+\paragraph{Energy consumption ($E_{c}$)} 
+is defined as the amount of energy consumption required by all related OppNet nodes to deliver one $M_{created}$ message.
+%
+We simplify the energy consumption model by only considering the communication energy consumption of the wireless interface to transmit a message by determining the number of all necessary protocol packets, $M_{packet}$ per number of $M_{created}$ messages.
 %%
-% We simplify the energy consumption model by only considering for the communication energy consumption of the wireless interface to transmit all necessary protocol packets, $M_{packet}$.
-We simplify the energy consumption model by only considering for the communication energy consumption of the wireless interface to transmit a message by determining the number of all necessary protocol packets, $M_{packet}$ per number of $M_{created}$ messages.
-%%
-To transmit an $L$ bit-length packet using radio interface with transmission length, $d$, the consumed energy, ${ E }_{ T }$, can be determined by Eq.\ref{eq:enegy} \cite{Yang2010, Wang2006}, where $\alpha$ is the power loss component with $\alpha \in \left[ 2,4 \right]$ and $\epsilon { f }_{ s }\left[ J/(bit/{ m }^{ \alpha  }) \right]$ is the amount of energy consumed by an amplifier to transmit one bit data at an acceptable quality level.
+To transmit an $L$ bit-length packet using a radio interface with transmission range, $d$, the consumed energy, ${ E }_{ T }$, can be determined by Eq.\ref{eq:enegy} \cite{Yang2010, Wang2006}, where $\alpha$ is the power loss component with $\alpha \in \left[ 2,4 \right]$ and $\epsilon { f }_{ s }\left[ J/(bit/{ m }^{ \alpha  }) \right]$ is the amount of energy consumed by an amplifier to transmit one bit data at an acceptable quality level.
 
 \begin{eqnarray}
 	\label{eq:enegy}
-	{ E }_{ T }\quad =\quad L\cdot  { \epsilon  }_{ fs } \cdot  { d }^{ \alpha  }
+	{ E }_{ T }\quad =\quad L\cdot  { \epsilon  }{ f_s } \cdot  { d }^{ \alpha  }
 \end{eqnarray} 
 
 As a result, the energy consumption ($E_c$) can be derived as Eq. \ref{eq:enegy_consumed} 
 
 \begin{eqnarray}
 	\label{eq:enegy_consumed}
-	{ E }_{ c }\quad =\quad \frac{M_{packet}}{M_{created}} \cdot L_p \cdot  { \epsilon  }_{ fs } \cdot  { r }^{ 2 }
+	{ E }_{ c }\quad =\quad \frac{M_{packet}}{M_{created}} \cdot L_p \cdot  { \epsilon  }{ f_s } \cdot  { r }^{ 2 }
 \end{eqnarray} 
 
-Note that $L_p$ is the size of protocol packet, $r$ is the radio transmission range of the protocol packet and $\alpha$ is equal to two in our simulations.
+Note that $L_p$ is the size of a protocol packet, $r$ is the radio transmission range of the protocol packet and $\alpha$ is equal to two in our simulations.
 %%
 \paragraph{Protocol performance ($P_{\Psi}$)} is a composite metric to capture the gain in both delivery capability and energy saving capability of a specific protocol, compared with the baseline protocol, Epidemic.
 %%
@@ -379,8 +408,7 @@ In this Equation, $P$ is the target protocol while $B$ is the baseline protocol 
 \subsection{Simulation Results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-This section shows the results of the different sets of simulation runs that have been performed to study the performance of the proposed routing protocol and its behavior when changing the protocol's key parameters.
+This section shows the results of the different sets of simulation runs that have been performed to study the performance of the proposed routing protocol and its behaviors when changing the protocol's key parameters.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{General protocol performance}
@@ -415,17 +443,20 @@ This section shows the results of the different sets of simulation runs that hav
 \end{figure}
 
 Firstly, the comparison of delivery ratio is shown in Fig. \ref{Delivery Ratio per Node Density}, where $x-axis$ represents the node density (the number of nodes in the area of one $km^2$) and $y-axis$ shows the delivery ratio.
+%
 In our simulation, we assume the environment of one Rendezvous node and the ratio of time interval between full power and power saving, $\tau_s$ of 0.5.
 %
 Fig. \ref{Delivery Ratio per Node Density} shows that our proposed protocols gain slightly better delivery ratio in the dense environment.
+%
 On the other hand, the proposed protocols gain significantly higher delivery ratio in the sparse environment by maintaining the ratio up to 80\%, even when node density is as low as 50 $nodes/km^2$ in non-predictable behavior or as low as 5 $nodes/km^2$ nodes in predictable behavior.
-Over all in average, our proposed protocols gain approximately 40\% higher delivery ratio than existing traditional Epidemic routing in sparse networks.
+%
+Overall, in average, our proposed protocols gain approximately 40\% higher delivery ratio than existing traditional Epidemic routing in sparse networks.
 
-The reason behind the behaviors from this result is that the proposed Rendezvous concept can facilitate message exchanging process between nodes passing through the same area but on the different time-line as designed.
+The reason behind this is that the proposed Rendezvous concept can facilitate a message exchanging process between nodes passing through the same area but on the different time-line as designed.
 %%
-Those nodes coincidence on both time and space domain are likely to happen more in dense network but will become rarely to happen when the network is more sparse.
+Those nodes cohabiting on both time and space domains are more likely to appear in dense networks but less likely to emerge in sparse networks.
 %% 
-In addition, with the knowledge of node gathering area (predictable behavior), the delivery ratio of the proposed protocol can be further increased especially in the extremely low node density. 
+In addition, with the knowledge of node gathering areas (predictable behavior), the delivery ratio of the proposed protocol can be further increased especially in the extremely low node density scenario. 
 
 Secondly, the energy consumption ($E_c$), which is another vital factor in opportunistic network where most mobile nodes are usually equipped with limited power resources, is shown in Fig. \ref{Energy Consumption per Node Density}.
 %%
