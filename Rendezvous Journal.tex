@@ -35,55 +35,79 @@
 % make the title area
 \maketitle
 
-% As a general rule, do not put math, special symbols or citations
-% in the abstract
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Opportunistic network is a challenge network where the nodes need to communicate with each other even either direct or indirect routes between them may not permanently exist due to the nodes' random movement.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+An opportunistic network is a challenge network where the nodes need to communicate with each other even either direct or indirect routes between them may not permanently exist due to the nodes' random movement.
+%%
 Most routing algorithms in this dynamic network environment employ \textit{store-carry-forward} paradigm by which a node can keep the receiving messages, carrying the messages with them when moving and then forwarding the messages (or the copies) to the opportunistic meeting nodes when possible.
+%
 This routing model works well in the networks with high-to-moderate node density in which the opportunity that the moving nodes can meet with each other is rather high.
-On the other hand, it has been reported that the delivery ratio becomes remarkably low in the sparse network environment especially when there is strict constraint on message delivery deadline.
-In this paper, we introduce the novel concept of rendezvous place where the passing nodes can announce, deposit or pickup their own messages without having to meet the other nodes carrying the desired message. 
+%
+On the other hand, it has been reported that the delivery ratio becomes remarkably low in the sparse network environment especially when there is a strict constraint on message delivery deadline.
+%
+In this paper, we introduce the novel concept of rendezvous place where the passing nodes can announce, deposit or pickup their own messages without having to meet the other nodes carrying the desired message.
+% 
 In the proposed scheme, the rendezvous place can be detected automatically and its area's size and shape are dynamically changed according to the interaction among nodes passing around the area.
-The results from intensive simulations show that our proposed routing algorithm can achieve higher delivery ratio and utilize lower energy consumption than traditional opportunistic routing algorithms especially in sparse network environment.
-
+%
+The results from extensive simulations show that our proposed routing algorithm can achieve higher delivery ratio and utilize lower energy consumption than traditional opportunistic routing algorithms especially in sparse network environment.
 \end{abstract}
 \IEEEpeerreviewmaketitle
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-%What is OppNet?
-Opportunistic Network (OppNet) is an extreme type of Delay Tolerant Networks (DTNs) where the source and destination nodes might never be fully connected at the same time, thus there is no guarantee on the existence of a complete path between two nodes wishing to communicate \cite{MWNsBook2011}.
-This intermittent connections may result from several factors such as high node mobility, low node density, environmental interference and obstruction, short radio range and malicious attacks \cite{prodhan2011} etc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+An Opportunistic Network (OppNet) is an extreme type of Delay Tolerant Networks (DTNs) where the source and destination nodes might never be fully connected at the same time.
+%%
+Thus there is no guarantee on the existence of a complete path between two nodes wishing to communicate \cite{MWNsBook2011}.
+%%
+This intermittent connections may result from several factors such as high node mobility, low node density, environmental interference and obstruction, short radio range and malicious attacks \cite{prodhan2011}.
+%%
 The node movement in OppNet is extremely random in some networking environment, thus the probability of message delivery from source to destination is difficult to assure.
-Example of such networks are sparse mobile ad hoc network \cite{Alekeish2012}, military tactical networks \cite{Scott2005,Kerdsri2013}  or sensor networks, such as ZebraNet \cite{zebranet2004}, SWIM \cite{Small2003}  which are wireless sensor networks in which nodes move throughout an environment working to gather and process information about their surroundings.
-Commonly, the key differentiating factors among those scenarios are the amount of predictability and control over the contacts between the message carriers\cite{Karkkainen2013}.
-%Algorithms --> Store Carry Forward
+%%
+Examples of such networks are sparse mobile ad hoc networks \cite{Alekeish2012}, military tactical networks \cite{Scott2005,Kerdsri2013} or sensor networks, such as ZebraNet \cite{zebranet2004}, SWIM \cite{Small2003}  in which nodes move throughout an environment, working to gather and process information about their surroundings.
+%%
+Commonly, the key differentiating factors among these scenarios are the levels of predictability and control over the contacts between the message carriers\cite{Karkkainen2013}.
+%%
 A key concept behind Opportunistic Routing (OR) is overhearing and cooperation among relaying nodes to overcome the drawback of unreliable wireless transmission \cite{Liu2009}.
-Since the mobile nodes are not always connected to each other, the forwarding algorithms in such network commonly follow a store-carry-forward (SCF) paradigm.
+%%
+Since the mobile nodes are not always connected to each other, the forwarding algorithms in such networks commonly follow a store-carry-forward (SCF) paradigm.
+%%
 This SCF employs storage space and node mobility to overcome the intermittent connectivity \cite{Ma2011}.
-The messages sent from the source node are carried by intermediate nodes to other geographical area and transfered to adjacent nodes until the destination node receives this message.
-%From part A
+%%
+The messages sent from the source node are carried by intermediate nodes to other geographical areas and transfered to adjacent nodes until the destination node receives this message.
+%%
 Since this fundamental SCF routing model realistically requires a certain sufficient occasion of \emph{direct} encounter among moving nodes to exchange messages, its routing performance will highly degrade in the low-node-density sparse network \cite{Spyropoulos2010}.
-%From part A2
+%%
 Although there are several existing OppNet routing solutions \cite{ Zhang2013, Chung-Ming2008, Spyropoulos2004, Grossglauser2002, Vahdat2000,Kerdsri2013} proposed in the literature, very few proposals address the problem in this sparse network environment especially when the OppNet nodes are energy-constrained \cite{Liguang2013,Eu2010} and the direction of their movement cannot be controlled.
+%%
 One interesting application of such OppNet environment is the sensor OppNet for wildlife monitoring and tracking \cite{zebranet2004, Small2003}.
 
-%From part B
-In this paper, we proposed a novel Dynamic Rendezvous based Routing Algorithms (DRRA) to increase message exchanging opportunity even in the sparse network environment.
+In this paper, we proposed a novel Dynamic Rendezvous based Routing Algorithm (DRRA) to increase message exchanging opportunity even in the sparse network environment.
+%%
 We utilize the fact that there should be some node-gathering (Rendezvous) places forming somewhere at some specific time in the real network.
+%%
 These Rendezvous places may be either predictable such as along the river in the wildlife monitoring application, or non-predictable such as disaster and emergency networks.
+%%
 An energy constrained node should maximize its resource usage to communicate with the others only when entering into the rendezvous area.
+%%
 In the proposed scheme, the rendezvous place is dynamically marked by the help of a special controllable Rendezvous node and the proposed rumor protocol to let nodes in the rendezvous area exchange messages more efficiently without having to directly meet with the other nodes.
 
 The rest of the paper is organized as follows. 
+%%
 In section II, we discuss the  overview of SFC routing models and existing works. 
+%%
 The detail of rendezvous based routing model is elaborated in section III.
+%5
 In section IV, we present the result of our simulation and show the performance of our scheme under different conditions.
+%%
 We conclude the paper and point out some future research directions in section V.   
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The SCF routing models and existing works}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=3in]{Figures/SFC.pdf}
@@ -92,27 +116,38 @@ We conclude the paper and point out some future research directions in section V
 \end{figure}
 
 In OppNet, the messages are delivered using Store-Carry-Forward routing by which  the nodes can exchange data whenever they come in close.
+%%
 If there is no direct connection from source to destination, data holding nodes will discover their nearest neighbor nodes to forward messages toward the destination node as shown in Fig. \ref{SFC}.
-There are several existing works in the literature \cite{Vahdat2000, Harras2005, Neena2013, Lindgren2003,Brendan2005,Boldrini2007,Kerdsri2013} with the aim for 100\% delivery ratio which is quite difficult to achieve especially in sparse network with constraints in energy consumption and message delivery deadline.
+%%
+There are several existing works in the literature \cite{Vahdat2000, Harras2005, Neena2013, Lindgren2003,Brendan2005,Boldrini2007,Kerdsri2013} with the aim for 100\% delivery ratio which is quite difficult to achieve especially in sparse networks with constraints in energy consumption and message delivery deadline.
 
-Vahdat et al \cite{Vahdat2000} proposed the epidemic routing using  uncontrolled flooding algorithm in which the replication of source data is not restricted with any limits in order to route the message from source to destination in the intermittently connected network.
-However, this type of routing incurs significant demand on both bandwidth and buffer.
-To address the excess traffic overhead, Khaled et al \cite{Harras2005} proposed a Controlled Flooding  scheme which can limit the flooding by three parameters: Willingness probability, Time-to-Live, and Kill Time.
-Nevertheless, flooding based routing performance degrading has been reported in a very sparse network \cite{Neena2013}.
+Vahdat et al. \cite{Vahdat2000} proposed the epidemic routing using the uncontrolled flooding algorithm in which the replication of source data is not restricted with any limits in order to route the message from source to destination in the intermittently connected network.
+%%
+However, this type of routing incurs a significant demand on both bandwidth and buffer capacity.
+%%
+To address the excess traffic overhead, Khaled et al. \cite{Harras2005} proposed a Controlled Flooding  scheme which can limit the flooding by three parameters: Willingness probability, Time-to-Live, and Kill Time.
+%%
+Nevertheless, flooding based routing performance degradation has been reported in a very sparse network \cite{Neena2013}.
 
-Lindgren et al \cite{Lindgren2003} proposed a prediction based routing called PROPHET (Probabilistic Routing Protocol using History of Encounters and Transitivity) by estimating the delivery predictability to indicate the probability of success in delivering a message to the destination from the local node.
-In this prediction based routing category, Brun et al \cite{Brendan2005}  also proposed a protocol utilizing the motion vector of mobile nodes to predict the future location of mobile nodes by using the knowledge of relative velocities of a node and its neighbor nodes to predict the closest distance between two nodes.
-Although the prediction based approach can reduce traffic overhead in the network, but it lacks of the aim to improve the performance in extremely low node density and failed in some certain cases which leads to the delivery ratio reduction.
+Lindgren et al. \cite{Lindgren2003} proposed a prediction based routing called PROPHET (Probabilistic Routing Protocol using History of Encounters and Transitivity) by estimating the delivery predictability to indicate the probability of success in delivering a message to the destination from the local node.
+%%
+In this prediction based routing category, Brun et al. \cite{Brendan2005}  also proposed a protocol utilizing the motion vector of mobile nodes to predict the future location of mobile nodes by using the knowledge of relative velocities of a node and its neighbor nodes to predict the closest distance between two nodes.
+%%
+Although the prediction based approach can reduce traffic overhead in the network, but it fails to improve the performance in an extremely low node density scenario and, in some cases, results in the delivery ratio reduction.
 
-To refine the prediction based routing,  Boldrini et al \cite{Boldrini2007}  proposed the History based routing (HiBOp) which exploits current context information for data forwarding decisions.
-Even though, this context based routing approach can reduce the resource consumption in terms of network traffic and storage but it increases the delay which results in significantly less efficient than Epidemic algorithm.
-%In our work of content based routing, DORSI protocol \cite{Kerdsri2013} aims to differentiate the messages by their significant in order to improve the delivery ration of important data.
-Kerdsri et al \cite{Kerdsri2013} proposed DORSI protocol with the concept of content based routing which aims to classify the data in the network by messages' significance level in order to guarantee the delivery of more important data. 
+To refine the prediction based routing,  Boldrini et al. \cite{Boldrini2007}  proposed the History based routing (HiBOp) which exploits current context information for data forwarding decisions.
+%%
+Even though this context based routing approach can reduce the resource consumption in terms of network traffic and storage, its delay performance is significantly inferior to that of the Epidemic algorithm.
+%%
+Kerdsri et al. \cite{Kerdsri2013} proposed the DORSI protocol with the concept of content based routing which aims to classify the data in the network by messages' significance level in order to guarantee the delivery of more important data. 
+%%
 However, the decreasing in network performance under sparse environment is not mentioned in this proposed protocol.
-Overall, the performance of most existing algorithms are degrading in very sparse node density and the energy consumption does not take in to the consideration which is a crucial factor in such mobile sensor devices such as in wildlife monitoring.
+%%
+Overall, the performance of most existing algorithms are degrading in very sparse node density, and the energy consumption is not taken into the consideration which is a crucial factor in mobile sensor devices such as in wildlife monitoring.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The proposed Rendezvous based OppNet system}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{System model}
 \begin{figure*}[!t]
@@ -129,14 +164,22 @@ As shown in Fig. \ref{System model}, the OppNet node, $N_{c}$, whose movement di
 The Rendezvous Rumor protocol and Rendezvous Node Sweeping mechanism are used inside the Rendezvous area to let messages being exchanged more effectively without the need of direct contact between the OppNet node and the high-resource direction-controllable Rendezvous node, $N_{rv}$, which is act as the center of the Rendezvous place.
 The Rendezvous nodes will move around the OppNet network to create suitable Rendezvous places according to the proposed \emph{Rendezvous Place Searching algorithm}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{OppNet node's operational modes: "Full Power" and "Power Saving"}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The OppNet node ($N_{c}$) is a mobile node equipped with the radio interface whose transmission rage is adjustable in range of $[{ r }_{ c }^{ min },{ r }_{ c }^{ max }]$.
 The node will operate in either \emph{Full Power mode} or \emph{Power Saving mode} according to its location.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Full power mode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 In this mode, the node will use its full transmission power, ${ r }_{ c }^{ max }$, to search for nearby nodes and exchange messages.
 It will switch to this mode only when getting into the Rendezvous area.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Power saving mode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The node, by default, operates in this mode if it is outside the Rendezvous place.
 In this mode, it will alternately change its transmission range between ${ r }_{ c }^{ min }$ and ${ r }_{ c }^{ max }$ in the process of searching for nearby nodes.
 However, if it receives the searching signal from the other node, it will switch to its full ${ r }_{ c }^{ max }$ immediately in order to increase opportunity to exchange messages with the encountered node as much as possible.
@@ -151,8 +194,9 @@ Besides the ${ r }_{ c }^{ min }$ and ${ r }_{ c }^{ max }$ values, the ratio of
 \end{figure}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Rendezvous place and its Rumor protocol}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Rendezvous place is a dynamic area centered by a special controllable Rendezvous node, $N_{rv}$.
 This $N_{rv}$ node is full of resources such as large message storage and high radio power with maximum transmission range $R_{rv}$.
@@ -195,12 +239,19 @@ In the proposed system, the Rendezvous node should move to find the node-gatheri
 	\caption{Rendezvous place searching}
 	\label{Rendezvous node movements}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Predictable behavior OppNet nodes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 In some applications, the movement of OppNet node is somehow predictable.
 Take a wildlife monitoring as an example, most animals are usually cyclically gathering in the high supplies area such as along side of the main river of some specific place at some specific time \cite{Yu2007}.
 In these applications, the Rendezvous nodes can be programmed to be located at those areas at the proper time in order to maximize the effectiveness of the proposed system.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Non-Predictable behavior OppNet nodes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 Without any priori knowledge about OppNet node, the proposed \emph{dynamic Rendezvous Place Searching Algorithm} can be used to guide the Rendezvous nodes to the node-gathering area.
 The Rendezvous node will decide to move to the new node gathering location if the number of OppNet node in the current Rendezvous place ($\eta_{c}$) falls below the predefined departure node threshold, $H_{d}$.
 The movement direction, $\vec{\Delta}$, will be determined periodically based on the collected statistical data from both previously contacting OppNet nodes and other neighboring Rendezvous nodes as in Eq.\ref{DirectionParameter}.
@@ -226,6 +277,7 @@ We compare both predictable and non-predictable behavior OppNet nodes with the c
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation setup}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 We setup a simulation environment using ONE (Opportunistic Network Environment) \cite{Keranen2009b}, which is a powerful tool designed for running opportunistic network simulation with various routing protocols and different movement models.
 %%
 All the results are obtained by averaging over a few hundreds independent simulation runs with different seeds.
@@ -329,8 +381,10 @@ In this Equation, $P$ is the target protocol while $B$ is the baseline protocol 
 
 
 This section shows the results of the different sets of simulation runs that have been performed to study the performance of the proposed routing protocol and its behavior when changing the protocol's key parameters.
-%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{General protocol performance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[!t]
 	\centering
@@ -398,7 +452,6 @@ The Epidemic is used as the based-line protocol in $P_{\psi}$ calculation so its
 The proposed protocol performance can achieve up to 20 times of the existing Epidemic when network is very sparse and on average about 5-10 times in general network environment.
 al Epidemic protocol.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!t]
 \centering
 \includegraphics[width=2.5in]{Graphs/NpsDeliveryPerformanceAndDeliveryRatio.pdf}
@@ -406,7 +459,10 @@ al Epidemic protocol.
 \label{The Optimum between Delivery Ratio and protocol Performance}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Impact from power saving factor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 In this subsection, we study protocol parameters relevant to the power saving factor and the trade-off between power consumption and delivery ratio.
 %
@@ -437,8 +493,8 @@ On the other hand, we can select the $n_{ps}$ that gives the maximum $D_r$ if th
 Finally, if both the minimum $D_r$ and maximum $E_c$ are defined, we can get the $n_{ps}$ value that suit the application.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsubsection{Other network environment parameters}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[!t]
 	\centering
@@ -475,8 +531,10 @@ This is the result from the asymmetric in transmission range of OppNet nodes whi
 %%
 Finally, Fig. \ref{Movement Model Comparison} shows that our proposed Rendezvous protocol performance will drop if node movement become more random since the proposed protocol utilizes the group gathering behavior to increase message exchanging activities.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 Opportunistic Routing techniques can be applied in  plentiful variety of scenarios such as military network or wildlife monitoring. 
 %
 In this paper, we investigate the use of Rendezvous points in opportunistic network routing to increase the delivery ratio in extreme sparse network environment.
@@ -497,8 +555,10 @@ We can simply imply that if the location of rendezvous place can be predicted, w
 %%
 In the future work, this concept of smart node can be further extend to increase the intelligence of the node since the technologies can be rapidly advanced.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 This work was supported by Sirindhorn International Institute of Technology, Thammasat University, Thailand and Basic Research Program from Data Communication Laboratory, Research and Development Department at Defense Technology Institute Thailand.
 
 \bibliographystyle{IEEEtran}
