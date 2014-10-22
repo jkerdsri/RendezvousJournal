@@ -251,6 +251,8 @@ The common parameters are summarized in Table \ref{table_parameters}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Metric}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{table}[!t]
 	\renewcommand{\arraystretch}{1.3}
 	\caption{simulation variables}
@@ -295,17 +297,17 @@ We simplify the energy consumption model by only considering for the communicati
 %%
 To transmit an $L$ bit-length packet using radio interface with transmission length, $d$, the consumed energy, ${ E }_{ T }$, can be determined by Eq.\ref{eq:enegy} \cite{Yang2010, Wang2006}, where $\alpha$ is the power loss component with $\alpha \in \left[ 2,4 \right]$ and $\epsilon { f }_{ s }\left[ J/(bit/{ m }^{ \alpha  }) \right]$ is the amount of energy consumed by an amplifier to transmit one bit data at an acceptable quality level.
 
-\begin{IEEEeqnarray}{rCl}
+\begin{eqnarray}
 	\label{eq:enegy}
 	{ E }_{ T }\quad =\quad L\cdot  { \epsilon  }_{ fs } \cdot  { d }^{ \alpha  }
-\end{IEEEeqnarray} 
+\end{eqnarray} 
 
 As a result, the energy consumption ($E_c$) can be derived as Eq. \ref{eq:enegy_consumed} 
 
-\begin{IEEEeqnarray}{rCl}
+\begin{eqnarray}
 	\label{eq:enegy_consumed}
 	{ E }_{ c }\quad =\quad \frac{M_{packet}}{M_{created}} \cdot L_p \cdot  { \epsilon  }_{ fs } \cdot  { r }^{ 2 }
-\end{IEEEeqnarray} 
+\end{eqnarray} 
 
 Note that $L_p$ is the size of protocol packet, $r$ is the radio transmission range of the protocol packet and $\alpha$ is equal to two in our simulations.
 %%
@@ -319,52 +321,12 @@ The $P_{\Psi}$ can be calculated from Eq. \ref{eq:protocol_performance}.
 = \frac {{ D }_{ r }^{ P }}{{ D }_{ r }^{ B } } \cdot \frac{{ E }_{c}^{ B }}{{ E }_{c}^{ P }}
 \end{eqnarray}
 
-
-
-% \paragraph{Protocol performance ($P_{p}$)} is a composite metrics defined as a delivery ratio per energy consumption unit in order to clearly analyze our protocol performance.
-% Basically, the relation between energy consumption and radio range can be determined by Eq.\ref{eq:enegy} \cite{Yang2010, Wang2006}.
-
-% \begin{IEEEeqnarray}{rCl}
-% 	\label{eq:enegy}
-% 	{ E }_{ T }\quad =\quad M_{packet}\cdot L\cdot  { \epsilon  }_{ fs } \cdot  { r }^{ \alpha  }
-% \end{IEEEeqnarray} 
-
-% ${ E }_{ T }$ is the amounts of transmission energy consumed at a node for transmitting an L-length message, 
-
-% where $\alpha$ is the power loss component with $\alpha \in \left[ 2,4 \right]$ and $\epsilon { f }_{ s }\left[ J/(bit/{ m }^{ \alpha  }) \right]$ is the amount of energy consumed by an amplifier to transmit one bit data at an acceptable quality level.
-
-
-% In this protocol, we approximately determine the relationship between unit of consumed energy and radio radius of node in the term of exponential equation.
-% We assume the simplicity of energy model by only accounting for the communication energy consumption of a wireless interface and do not consider other resources such as computation, location services or mobility.
-% In fact, the messages generated from protocol are accounted for the protocol performance.
-% As a result, the energy consumption can be simply derived as Eq. \ref{eq:new_energy}.
-
-% \begin{eqnarray}
-% 	\label{eq:new_energy}
-% 	{ E }_{ P }\quad \propto { \quad M }_{P }\cdot{ r }_{ P }^{ 2 }
-% \end{eqnarray}
-
-% Therefore, the protocol performance can be calculated from  Eq. \ref{eq:protocol_performance}.
-
-% \begin{eqnarray}
-% \label{eq:protocol_performance}
-% { P }_{ P }=\frac { { D }_{ r }^{ P,B } }{ { E }_{ P,B } } =\frac { { D }_{ r }^{ P }/{ D }_{ r }^{ B } }{ \left( \frac { { M }_{ P }{ \cdot r }_{ P }^{ 2 } }{ { M }_{ B }\cdot { r }_{ B }^{ 2 } }  \right)  } 
-% \end{eqnarray}
-
 In this Equation, $P$ is the target protocol while $B$ is the baseline protocol (Epidemic protocol, for example) to be used as comparative energy reference.
-% $M$ is the message number transmitted by OppNet nodes, excluding Rendezvous node in Rendezvous place.
-% The average transmission radius is referred as $r$ while $\alpha$ is the power consumption exponent factor [2,4] which we are using the value of 2 for our simulation.
-
-% In addition, we can determine the relative energy consumption $E_c$ by comparing the unit of power usage per unit of based protocol as in Eq. \ref{eq:EnergyConsumption}.
-
-% \begin{eqnarray}
-% \label{eq:EnergyConsumption}
-% E_c^{P,B} = c \cdot \frac{M_P \cdot r_P^2}{M_B \cdot r_B^2}
-% \end{eqnarray}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation Results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 This section shows the results of the different sets of simulation runs that have been performed to study the performance of the proposed routing protocol and its behavior when changing the protocol's key parameters.
 %%
