@@ -458,30 +458,29 @@ Those nodes cohabiting on both time and space domains are more likely to appear 
 %% 
 In addition, with the knowledge of node gathering areas (predictable behavior), the delivery ratio of the proposed protocol can be further increased especially in the extremely low node density scenario. 
 
-Secondly, the energy consumption ($E_c$), which is another vital factor in opportunistic network where most mobile nodes are usually equipped with limited power resources, is shown in Fig. \ref{Energy Consumption per Node Density}.
+Secondly, the energy consumption ($E_c$), which is another vital factor in opportunistic networks where most mobile nodes are usually equipped with limited power resources, is shown in Fig. \ref{Energy Consumption per Node Density}.
 %%
 The $x-axis$ represents node density and $y-axis$ is the $E_c$ in unit of energy consumption per 1,000 messages.
 %%
-This graph shows that the value of $E_c$ linearly increases when network become more dense.
+This graph shows that the value of $E_c$ linearly increases when a network become more dense.
 %%
-The trend on the graph is similar to the number of generated protocol packets per created messages on node density graph in Fig. \ref{Number of Generated Protocol Packets}.
+The trend on the graph is similar to the number of generated protocol packets per created messages on the node density graph in Fig. \ref{Number of Generated Protocol Packets}.
 %%
-The predictable behavior save 80\% less energy consumption than Epidemic protocol while non-predictable behavior can save around 60\% of Epidemic counterpart.
+The predictable behavior saves energy consumption by 80\% compared to the Epidemic protocol while the non-predictable behavior can save around 60\% compared to the Epidemic counterpart.
 %%
-On the other hand, the number of generated protocol packets per created messages of predictable behavior is 60\% and for non-predictable behavior is 30\% lower than Epidemic protocol.
+On the other hand, the number of generated protocol packets per created message of the predictable behavior scenario is 60\% and for the non-predictable behavior is 30\% lower than the Epidemic protocol.
 %%The reason for this behavior
-The reason of $E_c$ rising in the dense environment results from the increasing of node meeting activities from growing number of nodes which generating more number of messages.
+The reason of $E_c$ rising in the dense environment results from the increasing of node meeting activities from the growing number of nodes generating messages.
 %
-The trend similarity from Fig. \ref{Energy Consumption per Node Density} and \ref{Number of Generated Protocol Packets} is derived from the increasing number of messages in Eq. \ref{eq:enegy_consumed} which resulting in the rising in energy consumption. 
+The trend similarity in Fig. \ref{Energy Consumption per Node Density} and \ref{Number of Generated Protocol Packets} is derived from the increasing number of messages in Eq. \ref{eq:enegy_consumed} which results from the rising energy consumption. 
 %%
-Our proposed protocols require less number of generated messages while presenting significant lower $E_c$ which is the result from the fact that the Rendezvous protocols utilize less average wireless radius.
+Our proposed protocols require the lower number of generated messages while presenting a significantly lower $E_c$ which results from the fact that the Rendezvous protocols utilize a shorter average wireless radius.
 
-Combining both gains in delivery ratio and energy consumption saving, the proposed general protocol performance can be seen in Fig. \ref{General Protocol Performance per Node Density}. 
+Combining both gains in delivery ratio and energy consumption savings, the proposed general protocol performance can be seen in Fig. \ref{General Protocol Performance per Node Density}. 
 %
-The Epidemic is used as the based-line protocol in $P_{\psi}$ calculation so its value in Fig. \ref{General Protocol Performance per Node Density} is 1.
+The Epidemic protocol is used as the basedline protocol in $P_{\psi}$ calculations so its value in Fig. \ref{General Protocol Performance per Node Density} is 1.
 %
-The proposed protocol performance can achieve up to 20 times of the existing Epidemic when network is very sparse and on average about 5-10 times in general network environment.
-al Epidemic protocol.
+The proposed general protocol performance can rise up to 20 times compared to the existing Epidemic protocol when a network is very sparse and on average about 5-10 times in general network environments compared to the Epidemic protocol.
 
 \begin{figure}[!t]
 \centering
@@ -491,29 +490,29 @@ al Epidemic protocol.
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Impact from power saving factor}
+\subsubsection{Impacts of the power saving factor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-In this subsection, we study protocol parameters relevant to the power saving factor and the trade-off between power consumption and delivery ratio.
+In this subsection, we study protocol parameters relevant to the power saving factor and the tradeoffs between power consumption and delivery ratio.
 %
-We define the power saving factor, $n_{ps}$ as the composite parameters of the proposed protocol as in Eq. \ref{nps}.
+We define the power saving factor, $n_{ps}$, as the composite parameters of the proposed protocol as in Eq. \ref{nps}.
 %
 \begin{equation}
 { n }_{ ps }={ \tau  }_{ s }\cdot \frac { { r }_{ c }^{ max }-{ r }_{ c }^{ min } }{ { r }_{ c }^{ max } } 
 \label{nps}
 \end{equation}
-The $n_{ps}$ is mainly calculated from the time being in power saving mode, $\tau_s$ and the portion of energy consumption used when being in such power saving mode.
+The $n_{ps}$ is mainly calculated from the time being in power saving mode, $\tau_s$, and the portion of energy consumption used when being in such power saving mode.
 %
-The value of $n_{ps}$ is in [0,1] range where its minimum value (no saving) represents either OppNet nodes never operate in power saving mode of the proposed protocol or the maximum energy consumption ($r_c^{min} = r_c^{max}$) is used in such mode.
+The value of $n_{ps}$ is in range [0,1] where its minimum value (no saving) represents either OppNet nodes never operate in power saving mode of the proposed protocol or the maximum energy consumption ($r_c^{min} = r_c^{max}$) is used in such mode.
 %
-The opposite behavior in power saving mode is for the maximum $n_ps$.
+The opposite behavior in power saving mode applies for the maximum $n_ps$.
 %
-Fig. \ref{The Optimum between Delivery Ratio and protocol Performance} shows both delivery ratio ($D_r$ on solid line) and energy consumption ($E_c$ on dash line) when varying power saving factor ($n_{ps}$) for the node density ($\alpha$) = 100 and 300 $nodes/km^2$.
+Fig. \ref{The Optimum between Delivery Ratio and protocol Performance} shows both delivery ratio ($D_r$ on solid line) and energy consumption ($E_c$ on dash line) when varying the power saving factor ($n_{ps}$) for the node density ($\alpha$) = 100 and 300 $nodes/km^2$.
 %
-The graph shows that when $n_{ps}$ increases the value of $E_c$ and $D_r$ decreased as expected.
+The graph shows that when $n_{ps}$ increases, the value of $E_c$ and $D_r$ decreased as expected.
 %
-The delivery ratio for more sparse network significantly drops when the $n_{ps}$ increases because the saving factor can degrade the delivery performance if the nodes spend more time in saving mode.
+The delivery ratio for more sparse networks significantly drops when the $n_{ps}$ increases because the saving factor can degrade the delivery performance if the nodes spend more time in saving mode.
 %
 In fact, the optimum of $n_{ps}$ depends on the real applications.
 %
@@ -521,7 +520,7 @@ In the application with the level of acceptable minimum $D_r$ as a threshold, we
 %
 On the other hand, we can select the $n_{ps}$ that gives the maximum $D_r$ if the threshold of acceptable maximum $E_c$ is defined.
 %
-Finally, if both the minimum $D_r$ and maximum $E_c$ are defined, we can get the $n_{ps}$ value that suit the application.
+Finally, if both the minimum $D_r$ and maximum $E_c$ are defined, we can get the $n_{ps}$ value that suits the application.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Other network environment parameters}
@@ -548,9 +547,9 @@ Finally, if both the minimum $D_r$ and maximum $E_c$ are defined, we can get the
 \label{Movement Model Comparison}
 \end{figure}
 
-In this subsection, we investigate other protocol and environmental parameter which may have effect to the proposed protocol performance.
+In this subsection, we investigate other protocol and environmental parameters which may have effects on the proposed protocol performance.
 %
-Fig. \ref{Multiple Rendezvous Nodes} presents the variation on the number of Rendezvous nodes to analyze the impact on delivery ratio per node density.
+Fig. \ref{Multiple Rendezvous Nodes} presents the variation on the number of Rendezvous nodes to analyze the impacts on delivery ratio per node density.
 %
 This graph shows that more Rendezvous nodes can achieve more $D_r$ as expected.
 %
@@ -558,33 +557,31 @@ In Fig. \ref{RrvRcmaxRatio}, the effect of $R_{rv}/R_c^{max}$ ratio on delivery 
 % 
 By increasing $R_{rv}$ (maximum radio transmission of Rendezvous node), the $D_r$ will not increase but slightly decrease.
 %
-This is the result from the asymmetric in transmission range of OppNet nodes which can degrade the delivery ratio performance in Rendezvous area, since the nodes with longer transmission range can send the messages to other nodes with shorter range, but can not receive the messages back.
+This is the result from the asymmetric in transmission ranges of OppNet nodes which can degrade the delivery ratio performance in the Rendezvous area, since the nodes with a longer transmission range can send the messages to other nodes with shorter ranges, but cannot receive the messages back.
 %%
-Finally, Fig. \ref{Movement Model Comparison} shows that our proposed Rendezvous protocol performance will drop if node movement become more random since the proposed protocol utilizes the group gathering behavior to increase message exchanging activities.
+Finally, Fig. \ref{Movement Model Comparison} shows that our proposed Rendezvous protocol performance will drop if node movements become more random since the proposed protocol utilizes the group gathering behavior to increase message exchanging activities.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Opportunistic Routing techniques can be applied in  plentiful variety of scenarios such as military network or wildlife monitoring. 
+Opportunistic Routing techniques can be applied in a plentiful variety of scenarios such as military networks or wildlife monitoring. 
 %
 In this paper, we investigate the use of Rendezvous points in opportunistic network routing to increase the delivery ratio in extreme sparse network environment.
 %
-This novel protocol proposes the two new types of node, Rendezvous node and OppNet node, which can help maintaining the messages in one place as long as possible in order to bridge the gap of time and space domain.
+This novel protocol proposes the two new types of nodes, Rendezvous node and OppNet node, which can help maintaining the messages in one place as long as possible in order to bridge the gap of time and space domains.
 %
 In this Rendezvous place, the passing nodes can announce, deposit and pickup their own messages without meeting with other nodes that carried desired messages.
 %
-The size and shape of  Rendezvous place can be adapted to the environment of OppNet nodes in the area.
+The size and shape of a Rendezvous place can be adapted to the environment of OppNet nodes in the area.
 %
 We define our routing model in two functions: predictable  and non-predictable behavior OppNet node functions.
 %
-The result suggest that our protocols perform significant higher in general protocol performance which is the trade off of delivery ratio per energy consumption.
+The results suggest that our protocols perform significantly higher in terms of general protocol performance which is the tradeoff of delivery ratio per energy consumption.
 %
-We can simply imply that if the location of rendezvous place can be predicted, we can achieve highest overall performance.
+This implies that if the location of rendezvous place can be predicted, we can achieve the highest overall performance.
 %%
-% Our experiment also suggest that the OppNet node can gain higher protocol performance when the time interval of power saving mode is longer and the minimum radio range is higher.
-%%
-In the future work, this concept of smart node can be further extend to increase the intelligence of the node since the technologies can be rapidly advanced.
+In the future work, this concept of smart nodes can be further extended to increase the intelligence of the node since the technologies can be rapidly advanced.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgment}
